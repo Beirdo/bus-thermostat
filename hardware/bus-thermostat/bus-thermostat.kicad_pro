@@ -332,6 +332,10 @@
     [
       "9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9",
       "CPU"
+    ],
+    [
+      "b3446cb0-6e23-490d-8c96-4b8b72cbbdab",
+      "SPWM Generator"
     ]
   ],
   "text_variables": {}
