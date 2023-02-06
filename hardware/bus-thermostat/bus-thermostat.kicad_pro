@@ -335,6 +335,14 @@
     ],
     [
       "b3446cb0-6e23-490d-8c96-4b8b72cbbdab",
+      "PWM Clock Generator"
+    ],
+    [
+      "5d0aa587-d4f4-4198-9fa2-39ff60d3c069",
+      "60Hz Oscillator"
+    ],
+    [
+      "8bc5e5f1-77db-4280-bb6e-b0ee265f21ed",
       "SPWM Generator"
     ]
   ],
