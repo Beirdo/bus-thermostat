@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>         <html class=" no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>            <html class=" no-js lt-ie10 lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>            <html class=" no-js lt-ie10 ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=" no-js" lang="en"> <!--<![endif]--><head>
+  <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  var functionToInit = [];
+</script><script>
+  var initialDeviceWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  if (sessionStorage['switchViewportWidth'] >= 1024 && initialDeviceWidth < 1024) {
+    var switchViewport = 1024;
+  } else if (sessionStorage['switchViewportWidth'] < 1024 && initialDeviceWidth >= 1024) {
+    var switchViewport = 1023;
+  } else if (sessionStorage['switchViewportWidth'] != null) {
+    sessionStorage.removeItem('switchViewportWidth');
+  }
+
+  if (switchViewport) {
+    if (sessionStorage['switchViewportDevice'] == 'ie') {
+      var element;
+      if (navigator.userAgent.match(/Windows NT 6.3; ARM(.+)Touch/)) {
+        element = document.createElement("style");
+        element.appendChild(document.createTextNode("@-ms-viewport{width:" + switchViewport + "px;}"));
+      } else {
+        element = document.createElement("link");
+        element.href = switchViewport >= 1024 ? '/frontend/release_2023-01/dist/resources/css/switchToDesktop.css' : '/frontend/release_2023-01/dist/resources/css/switchToMobile.css';
+        element.rel = "stylesheet";
+      }
+      document.getElementsByTagName("head")[0].appendChild(element);
+    } else {
+      document.querySelector("meta[name=viewport]").setAttribute('content', 'width=' + switchViewport);
+    }
+  }
+</script>
+
+<title>Semiconductor&#x20;&amp;&#x20;System&#x20;Solutions - Infineon Technologies</title>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@infineon">
+
+<meta property="og:title" content="Semiconductor&#x20;&amp;&#x20;System&#x20;Solutions - Infineon Technologies"/>
+<meta name="twitter:title" content="Semiconductor&#x20;&amp;&#x20;System&#x20;Solutions - Infineon Technologies"/>
+<meta name="description" content="Infineon&#x20;semiconductor&#x20;solutions&#x20;-&#x20;MCUs,&#x20;sensors,&#x20;automotive&#x20;&amp;&#x20;power&#x20;management&#x20;ICs,&#x20;memories,&#x20;USB,&#x20;Bluetooth,&#x20;WiFi,&#x20;LED&#x20;drivers,&#x20;radiation&#x20;hardened&#x20;devices.">
+<meta property="og:description" content="Infineon&#x20;semiconductor&#x20;solutions&#x20;-&#x20;MCUs,&#x20;sensors,&#x20;automotive&#x20;&amp;&#x20;power&#x20;management&#x20;ICs,&#x20;memories,&#x20;USB,&#x20;Bluetooth,&#x20;WiFi,&#x20;LED&#x20;drivers,&#x20;radiation&#x20;hardened&#x20;devices.">
+<meta name="twitter:description" content="Infineon&#x20;semiconductor&#x20;solutions&#x20;-&#x20;MCUs,&#x20;sensors,&#x20;automotive&#x20;&amp;&#x20;power&#x20;management&#x20;ICs,&#x20;memories,&#x20;USB,&#x20;Bluetooth,&#x20;WiFi,&#x20;LED&#x20;drivers,&#x20;radiation&#x20;hardened&#x20;devices.">
+<meta name="keywords" content="infineon, semiconductor, technology">
+<meta name="area" content=""/>
+<link rel="canonical" href="https://www.infineon.com/cms/en/"/>
+    <meta name="copyright" content="Copyright Infineon Technologies AG - all rights reserved"/>
+<meta name="publisher" content="Infineon Technologies AG"/>
+<meta name="author" content="Infineon Technologies AG"/>
+<meta name="producer" content="virtual identity AG | http://www.virtual-identity.com"/>
+<meta name="leid" content="0317f105-192e-11e7-ac63-40f2e90e8d04"/>
+  <meta name="google-site-verification" content="mUY0X5AWhcwDsUXdx8W0wRUlnfBEaA_J8nkI4Vjgcvc"/>
+  <meta name="baidu-site-verification" content="deL3R0FFkR"/>
+<link rel="shortcut icon" type="image/ico" href='/frontend/release_2023-01/dist/resources/img/favicon.ico'/>
+
+<link rel="stylesheet" href="/frontend/release_2023-01/dist/resources/css/ifx.1.css"/>
+    <link rel="stylesheet" href="/frontend/release_2023-01/dist/resources/css/ifx.2.css"/>
+  <script nomodule src="/frontend/release_2023-01/dist/resources/js/vendor/fetch.umd.js"></script>
+<script nomodule src="/frontend/release_2023-01/dist/resources/js/es6.object.polyfills.js"></script>
+<script nomodule src="/frontend/release_2023-01/dist/resources/js/vendor/es6.append.polyfill.js"></script>
+<script nomodule src="/frontend/release_2023-01/dist/resources/js/es6.nodelist.forEach.polyfill.js"></script>
+<script nomodule src="/frontend/release_2023-01/dist/resources/js/customEvents.polyfill.js"></script>
+<script nomodule src="/frontend/release_2023-01/dist/resources/js/closest.polyfill.js"></script>
+
+<script src="/frontend/release_2023-01/dist/resources/js/vendor/webcomponents-loader.js"></script>
+
+<link rel="stylesheet" href="/frontend/release_2023-01/dist/resources/css/registration.css"/>
+<script src="https://www.infineon.com/infineon/frontend/infineon-component-library/dist/component-library-template/component-library-template.js"></script>
+<script src="https://www.infineon.com/myinfineon/frontend/registration-stencil-frontend/dist/myinfineon-registration-stencilfrontend/myinfineon-registration-stencilfrontend.js"></script>
+<script src="https://www.infineon.com/myinfineon/frontend/personalization-stencil/dist/ifx-personalization-service/ifx-personalization-service.js"></script>
+
+<script src="/frontend/release_2023-01/dist/resources/js/scripts.head.all.min.js"></script>
+
+<script type="text/javascript">
+  global.configuration.set('data.staticResourcesBase', '/frontend/release_2023-01/dist/resources/');
+  
+  window.preventTrackingOnPage = false;
+</script>
+
+<script src="/frontend/release_2023-01/dist/resources/js/vendor/update.npm.full.js"></script>
+<script>
+  var $buoop = {required: {e: -4, f: -3, o: -3, s: -1, c: -3}, insecure: true, test: false, dont_show_debuginfo: true, style: 'top', api: 2020.07, reminder: 0};
+  try { document.addEventListener('DOMContentLoaded', function() {$buo($buoop)},false) }
+  catch(e){ window.attachEvent('onload', function() {$buo($buoop)}) }
+</script>
+<!-- get the navigation to breadcrumb object -->
+<script>
+var isIfxUser = false;
+if (document.cookie.split(';').some(function(item) {
+  return item.trim().indexOf('IFX_user=') == 0
+})) {
+  isIfxUser = true;
+}
+
+var pageMetaData = {
+  event: "pageMeta",
+  page: {
+    pageInfo: {
+      pageType: "homePage",
+      language: "en",
+      samiId: "",
+      cmsId: "",
+      breadcrumbAllLevels: undefined,
+      
+    }
+  }
+};
+// only add trafficType, if not pushed before
+if (!sessionStorage['trafficTypePushed']) {
+  pageMetaData['user'] = {
+    segment: {
+      trafficType: isIfxUser ? "Infineon" : "External"
+    }
+  }
+  sessionStorage['trafficTypePushed'] = "true";
+}
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push(pageMetaData);
+
+// init global tracking data that the templates can push values in
+window.trackData = window.trackData || {};
+</script>
+<script type="text/javascript">
+  var legacyCookieConsentEnabled = false;
+  var consentCookieName = "cookie_consent_1";
+</script>
+
+<!-- OneTrust Cookies Consent Notice start for infineon.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="85f8227d-e015-4c62-ab96-ee1a08760fb3"></script>
+    <!-- OneTrust Cookies Consent Notice end for infineon.com -->
+  <script type="text/javascript">
+
+  
+  function openRegistration(extraClickParameters) {
+    var myInfineonRegistration = document.createElement('myifx-registration');
+    var myifxRegistrationSource = extraClickParameters.registrationSource;
+
+    myInfineonRegistration.setAttribute("language", configuration.data.global.language ||"en");
+    myInfineonRegistration.setAttribute("class-attr", "registration registration--modal");
+    myInfineonRegistration.setAttribute("overlay-name", 'Registration');
+
+    myInfineonRegistration.setAttribute("extra-click-parameters", JSON.stringify({'registrationSource' : myifxRegistrationSource}));
+    document.body.appendChild(myInfineonRegistration);
+  }
+
+  
+  function getRegistrationSourceForHashRegister(urlString){
+      var validationPattern = /^\?((\w+=\w+)(&)?)+/g;
+      if(! validationPattern.test(urlString)) {
+        return 'MYIFX_HASH_REGISTER';
+      }
+      var paramStrings = urlString.split('?')[1];
+      var queryString = new URLSearchParams(paramStrings);
+      var registrationSource = queryString.get("registrationSource");
+      switch(registrationSource) {
+        case "cmgmt":
+          return "MYIFX_CYPRESS_SFDC_COLLAB";
+        default:
+          return 'MYIFX_HASH_REGISTER';
+      }
+  }
+
+
+  function showRegistrationModalIfRegisterHashExists() {
+    if (window.location.hash === '#register') {
+      var myifxRegistrationSource = getRegistrationSourceForHashRegister(location.search);
+      openRegistration({registrationSource: myifxRegistrationSource});
+    }
+  }
+
+
+
+  function getUsersConsentInteractionCount(oneTrustMetaInformationCookie) {
+      var interactionCountRegex = /interactionCount=\d+/g;
+      if(!interactionCountRegex.test(oneTrustMetaInformationCookie)){
+        return 0;
+      }
+      var interactionCount = oneTrustMetaInformationCookie.match(interactionCountRegex)[0];
+      var interactionDigitRegex = /\d+/g;
+      var interactionDigit = parseInt((interactionCount.match(interactionDigitRegex))[0]);
+      return interactionDigit;
+  }
+
+  function isInPrivacyPolicyPage(){
+      const isPrivacyPolicyPage = window.location.href.indexOf("privacy-policy") > -1;
+      const otCookieBanner = document.querySelector('#onetrust-consent-sdk');
+      if (isPrivacyPolicyPage) {
+      const isOptanonAlertBoxClosed = document.cookie.match(new RegExp('(^| )' + 'OptanonAlertBoxClosed' + '=([^;]+)'));;
+      if (!isOptanonAlertBoxClosed) {
+        otCookieBanner.style.display= 'none';
+      }
+    }
+  }
+
+  window.addEventListener('load',function() {
+    var isConsentAlreadyChoosen = getUsersConsentInteractionCount(vi.helpers.getCookie("OptanonConsent")) > 0;
+    if (isConsentAlreadyChoosen) {
+      showRegistrationModalIfRegisterHashExists();
+    }
+  });
+
+  
+  function OptanonWrapper() {
+    isInPrivacyPolicyPage();
+    OneTrust.OnConsentChanged(function () {
+      showRegistrationModalIfRegisterHashExists();
+    });
+  }
+</script>
+<!-- anti-flicker snippet -->
+<script>document.documentElement.style.opacity = '0';
+  var antiFlicker = function(){
+    document.documentElement.style.transition = 'all 0.5s';
+    document.documentElement.style.opacity = '1';
+  };
+  setTimeout(antiFlicker, 2000);</script>
+<!-- Google Tag Manager preview/prod environment -->
+<!-- Google Tag Manager -->
+<script>(function(w, d, s, l, i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'}); f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=XcwOqCnNeaWAf4j4o2wr1A&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KV9T6RC');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="en">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV9T6RC&gtm_auth=XcwOqCnNeaWAf4j4o2wr1A&gtm_preview=env-2&gtm_cookies_win=x"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="overall-wrapper">
+  <div id="offcanvas-wrapper" class="site">
+    <div class="home site__content">
+      <nav id="navigation" class="main clearfix visible-xxs visible-xs visible-sm" role="navigation">
+	<ul role="menubar" class="main nav-list">
+	</ul>
+</nav><header class="navbar">
+    <div class="centered">
+      <div itemscope itemtype="http://schema.org/Organization">
+  <a itemprop="url" class="logo" href="/cms/en/">
+    <picture data-title="Infineon Technologies" data-itemprop="logo">
+      <source media="(min-width: 1024px) and (min-device-pixel-ratio: 2)" srcset="/frontend/release_2023-01/dist/resources/img/logo-desktop-en-2x.png">
+      <source media="(min-width: 1024px)" srcset="/frontend/release_2023-01/dist/resources/img/logo-desktop-en.png">
+      <source media="(max-width: 1023px) and (min-device-pixel-ratio: 2)"  data-min-dpr="2" srcset="/frontend/release_2023-01/dist/resources/img/logo-mobile-en-2x.png">
+      <img
+        itemprop="logo"
+        class="img-responsive-lazy"
+        src="/frontend/release_2023-01/dist/resources/img/logo-mobile-en.png"
+        loading="lazy"
+        alt="Infineon Technologies - Semiconductor and System Solutions">
+    </picture>
+  </a>
+</div>
+<button id="offcanvas-nav-trigger" class="btn btn-link navbar-toggle">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="glyphicon glyphicon-menu"></span>
+      </button>
+
+      <form action="/cms/en/search.html" method="get" class="navbar-search" role="search">
+        <input type="hidden" name="view" value="all"/>
+        <fieldset>
+          <input class="search-input typeahead" placeholder="Search" name="term" type="text" data-provide="typeahead" autocomplete="off"
+              data-suggestionsurl="/search/suggestions" data-lang="en"/>
+          <button type="submit" id="offcanvas-search-trigger" class="btn btn-link f0">
+            <span class="glyphicon glyphicon-search"></span>Search</button>
+        </fieldset>
+      </form>
+
+      <nav class="nav">
+        <ul class="first" role="menubar">
+          <li role="menuitem" class=""
+                >
+              <a href="/cms/en/product/">Products</a>
+            </li>
+          <li role="menuitem" class=""
+                >
+              <a href="/cms/en/applications/">Applications</a>
+            </li>
+          <li role="menuitem" class=""
+                >
+              <a href="/cms/en/design-support/">Design Support</a>
+            </li>
+          <li role="menuitem" class=""
+                >
+              <a href="/cms/en/community">Community</a>
+            </li>
+          <li role="menuitem" class=" blur has-flyout"
+                 aria-haspopup="true" data-flyout="4">
+              <a href="/cms/en/about-infineon/">About Infineon</a>
+            </li>
+          <li role="menuitem" class=""
+                >
+              <a href="/cms/en/careers/">Careers</a>
+            </li>
+          </ul>
+      </nav>
+
+      <main-search-input data-resources="[{paths: ['components/main-search-input/index.js']}]"
+          suggestions-url="/search/typeahead"
+          lang="en"
+          dropdown-list-items-url="/search/dropdownfields?folder=en&lang=en">
+      </main-search-input>
+
+      <nav class="metanav">
+        <ul>
+          <li class="hidden-xxs hidden-xs hidden-sm"><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;newsletter-registration&#x2f;">Newsletter</a></li>
+          <li class="hidden-xxs hidden-xs hidden-sm"><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;">Contact</a></li>
+          <li class="hidden-xxs hidden-xs hidden-sm"><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;where-to-buy&#x2f;">Where to Buy</a></li>
+          <li class="flyout flyout-right hover  hidden-xxs hidden-xs hidden-sm ">
+    <span>English<b class="caret"></b></span>
+    <ul>
+      <li class="line"></li>
+      <li><a href="/cms/cn/" class="languagelink">简体中文</a></li>
+      <li><a href="/cms/de/" class="languagelink">Deutsch</a></li>
+      <li><a href="/cms/jp/" class="languagelink">日本語</a></li>
+      </ul>
+  </li>
+<li class="flyout login-flyout user-button hover">
+            <span class="my-infineon-label"><span class="flyout-login-label glyphicon glyphicon-user"></span><span class="flyout-login-label flyout-login-label-text hidden-xxs hidden-xs hidden-sm">myInfineon</span><b class="caret"></b></span>
+              <ul class="flyout-menu-list">
+                <li class="line"></li>
+                <li class="myInfineon-visitorMenu" data-resources="[{paths: ['ts/ifx.visitorMenu.js', 'css/myInfineon.visitorMenu.css']}]"
+                      data-init="(function(element) {
+                          window.vi.ifxVisitorMenu (element, {
+                          language: configuration.get('global.locale') === 'en' ? 'en' : configuration.get('global.locale').split('_')[0],
+                          template: global.configuration.data.tpl.login.visitorMenu,
+                          myInfineonLoginUrl: 'https://www.infineon.com' + configuration.get('myInfineonLoginUrl'),
+                          myInfineonLoginUrlLabel: configuration.get('i18n.myInfineonLoginUrlLabel'),
+                          myInfineonBenefitsLinkUrl: configuration.get('myInfineonBenefitsLinkUrl'),
+                          myInfineonBenefitsLinkLabel: configuration.get('i18n.myInfineonBenefitsLinkLabel'),
+                          myInfineonDashboardLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonDashboardLinkUrl'),
+                          myInfineonDashboardLinkLabel: configuration.get('i18n.myInfineonDashboardLinkLabel'),
+                          myInfineonDocumentLibraryLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonDocumentLibraryLinkUrlWithParam'),
+                          myInfineonDocumentLibraryLinkLabel: configuration.get('i18n.myInfineonDocumentLibraryLinkLabel'),
+                          myInfineonMyCasesLinkUrl: configuration.get('myInfineonMyCasesLinkUrl'),
+                          myInfineonMyCasesLinkLabel: configuration.get('i18n.myInfineonMyCasesLinkLabel'),
+                          myInfineonProductRegistrationLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonProductRegistrationLinkUrlWithParam'),
+                          myInfineonProductRegistrationLinkLabel: configuration.get('i18n.myInfineonProductRegistrationLinkLabel'),
+                          myInfineonInterestsLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonInterestsLinkUrlWithParam'),
+                          myInfineonInterestsLinkLabel: configuration.get('i18n.myInfineonInterestsLinkLabel'),
+                          myInfineonFollowerNotificationsEnabled: configuration.get('myInfineonFollowerNotificationsEnabled'),
+                          myInfineonNotificationsLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonNotificationsLinkUrlWithParam'),
+                          myInfineonNotificationsLinkLabel: configuration.get('i18n.myInfineonNotificationsLinkLabel'),
+                          myInfineonProfileLinkUrl: configuration.get('myInfineonReturnAfterLoginBaseUrl') + configuration.get('myInfineonProfileLinkUrlWithParam'),
+                          myInfineonProfileLinkLabel: configuration.get('i18n.myInfineonProfileLinkLabel')
+                      });
+                })">
+                </li>
+                <li class="ifx-registration-item"><a class='link ifx-registration' id='registration-link' href='javascript:;'>Register for myInfineon</a></li>
+              </ul>
+            </li>
+          <li>
+              <a href="/cms/en/cart/" class="cart-button">
+                <span class="glyphicon glyphicon-cart"></span><span class="cart-label hidden-xxs hidden-xs hidden-sm">Cart</span>
+              </a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+
+    <div class="flyout flyout-nav" id="flyout-4" role="menu">
+          <div class="centered">
+            <div class="flyout-wrap-table">
+              <div class="flyout-wrap">
+                <div class="col col-left">
+                  <ul>
+                      <li class=""><strong><a
+                          href="/cms/en/about-infineon/company/">Company</a></strong></li>
+                      <li class=""><a
+                              href="/cms/en/about-infineon/company/our-divisions/">Our Divisions</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/management-board/">Management Board</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/supervisory-board/">Supervisory Board</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/find-a-location/">Our Locations</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/procurement/">Procurement</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/quality/">Quality</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/infineon-awards/">Infineon Awards</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/company/cybersecurity/">Cybersecurity</a></li>
+                        </ul>
+                  <ul>
+                      <li class=""><strong><a
+                          href="/cms/en/about-infineon/sustainability/">Sustainability</a></strong></li>
+                      <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/Environmental-Sustainability-and-Climate-Protection/">Environmental Sustainability and Climate Protection</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/Occupational-Safety-and-Health/">Safety and Health</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/business-ethics/">Business Ethics</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/corporate-citizenship/">Corporate Citizenship</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/Sustainable-Supply-Chain-Management/">CSR Supply Chain Management</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/Human-Rights/">Human Rights</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/sustainability/csr-reporting/">CSR Reporting</a></li>
+                        </ul>
+                  </div>
+                <div class="col">
+                  <ul>
+                      <li class=""><strong><a
+                          href="/cms/en/about-infineon/press/">Press</a></strong></li>
+                      <li class=""><a
+                              href="/cms/en/about-infineon/press/general-information/">General Information</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/press-releases/">Press Releases</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/market-news/">Market News</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/press-kit/">Press Kits</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/media-pool/">Media Pool</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/events/">Events</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/press/contacts/">Contacts</a></li>
+                        </ul>
+                  <ul>
+                      <li class=""><strong><a
+                          href="/cms/en/about-infineon/investor/">Investor</a></strong></li>
+                      <li class=""><a
+                              href="/cms/en/about-infineon/investor/annual-general-meeting/">Annual General Meeting</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/infineon-at-a-glance/">Infineon at a Glance</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/news-and-events/">News & Events</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/reports-and-presentations/">Reports & Presentations</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/infineon-share/">Infineon Share</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/fixed-income/">Fixed Income</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/corporate-governance/">Corporate Governance</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/shareholder-service/">Shareholder Service</a></li>
+                        <li class=""><a
+                              href="/cms/en/about-infineon/investor/contact/">Contact</a></li>
+                        </ul>
+                  <ul>
+                      <li class=""><strong><a
+                          href="/cms/en/about-infineon/tradeshows-conferences/">Tradeshows & Conferences</a></strong></li>
+                      </ul>
+                  </div>
+                <div class="col">
+                  <ul>
+                      <li class=""><strong><a href="&#x2f;cms&#x2f;en&#x2f;discoveries&#x2f;">Discoveries</a></strong></li>
+                      <li class=""><a href="/cms/en/discoveries/new-mobility/">New Mobility</a></li>
+                      <li class=""><a href="/cms/en/discoveries/internet-of-things/">Internet of Things</a></li>
+                      <li class=""><a href="/cms/en/discoveries/energy-efficiency/">Energy Efficiency</a></li>
+                      <li class=""><a href="/cms/en/discoveries/all-discoveries/">All Discoveries</a></li>
+                      </ul>
+                  <div class="media loader">
+                    <strong class="flyout__headline">
+                        <a href="https&#x3a;&#x2f;&#x2f;media.infineon.com" target="_blank">Videos</a></strong>
+                    <div class="media-wrap"></div>
+                  </div>
+                </div>
+                <div class="col news loader">
+                  <div class="news-wrap"></div>
+                  <div class="events-wrap"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+  <div class="alert alert-info hide" data-resources="[{paths: ['js/ifx.jquery.ifxSearchBackLink.js'] }]"
+     data-init="(function($elm) {
+		  $elm.ifxSearchBackLink();})">
+</div>
+<div class="container-fluid site__main" role="main">
+        <main>
+          <article>
+            <section class="row">
+              <div  id="stagecontainer" class="stagecontainer stage " ><div class="stage-wrapper loader stage-overview">
+        <div class="stage bxslider" data-bx-pause="7000">
+          <article class="stageItem clearfix lawn" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;investor&#x2f;reports-and-presentations&#x2f;" data-track-name="promotionClick" data-track-internal-promotion="202301_stage_en_all_Q1"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/about-infineon/investor/22-11-15-Stageimage-1280x400.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/about-infineon/investor/22-11-15-Stageimage-768x432.jpg_1459425146.jpg"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity=".8" fill="#aec067" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#aec067" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#aec067'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#aec067" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#aec067" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">2023 Fiscal First<br>Quarter Results</strong>
+        <div class="copy">2 February 2023</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">More information</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix lawn" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="https&#x3a;&#x2f;&#x2f;dldnews.com&#x2f;innovation-in-semiconductors-interview-infineon-andreas-urschitz&#x2f;" data-track-name="promotionClick" data-track-internal-promotion="202301_stage_en_Corp_DLD23" target="_blank"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/stage/Stage-Banner_AU_1280x400px.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/stage/Stage-Banner_AU_768x432px.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity=".8" fill="#aec067" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#aec067" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#aec067'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#aec067" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#aec067" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">Semiconductors - key enablers for decarbonization</strong>
+        <div class="copy">DLD23 speaker Andreas Urschitz, Chief Marketing Officer, on the crucial role semiconductors play in green energy and in making Europe more resilient</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Read now</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix lawn" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="https&#x3a;&#x2f;&#x2f;www.infineon.com&#x2f;dgdl&#x2f;Infineon-6ED2742S01Q-DataSheet-v01_00-EN.pdf&#x3f;fileId&#x3d;8ac78c8c8386267f0183cb757ef94811" data-track-name="downloadLink&#x20;promotionClick" data-track-access-mode="PUBLIC" data-track-document-type="Data&#x20;Sheet" data-track-download-title="Download&#x20;datasheet" data-track-file-extension="pdf" data-track-file-name="Infineon-6ED2742S01Q-DataSheet-v01_00-EN" data-file-id="8ac78c8c8386267f0183cb757ef94811" data-track-product-division-hierarchy="IPC" data-track-product-ispn="6ED2742S01Q" data-track-product-line="67" data-track-internal-promotion="202301_stage_en_IPC_MOTIX160V" target="_blank"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/stage/Stage-Banner_Robotic-Drone_1280x400px.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/stage/Stage-Banner_Robotic-Drone_768x432px.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity=".8" fill="#aec067" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#aec067" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#aec067'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#aec067" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#aec067" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">New 160 V MOTIX™ 3-phase gate driver IC</strong>
+        <div class="copy">Reliable gate driver solution for battery powered applications such as power tools, robotics, and LEVs for a wide range of battery voltages</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Download datasheet</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix lawn" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;ev-thermal-management&#x2f;high-voltage-ptc-heater-module&#x2f;" data-track-name="promotionClick" data-track-internal-promotion="202302_stage_en_ATV_PTCHeater"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/about-infineon/investor/Stage-Banner_VMO_HV_Auxiliaries-PTC-Heater_1280x400px.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/about-infineon/investor/Stage-Banner_VMO_HV_Auxiliaries-PTC-Heater_768x432px.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity="1" fill="#aec067" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#aec067" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#aec067'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#aec067" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#aec067" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">Energy efficient heating extends the range</strong>
+        <div class="copy">Use Infineon's semiconductor products for high-voltage PTC heaters in an electric vehicle. Save power and ensure passenger comfort</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Learn more</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix berry" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-health-appliances&#x2f;&#x23;&#x21;video" data-track-name="promotionClick" data-track-internal-promotion="202302_stage_en_Corp_SmartHealth"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/about-infineon/make-iot-work/Stagebanner_Smart-health-appliances_gross2.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/about-infineon/make-iot-work/Stagebanner_Smart-health-appliances_klein.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity="1" fill="#ab377a" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#ab377a" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#ab377a'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#ab377a" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#ab377a" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">Supporting good health with smart devices</strong>
+        <div class="copy">Good health increasingly means taking responsibility of our health by enhancing well-being to prevent illness. Discover the IoT's potential to improve health.</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Smart health appliances</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix ocean" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;ez-pd-bcr-tutorial-series&#x2f;&#x3f;intc&#x3d;PSS.P.P.BCR.SB" data-track-name="promotionClick" data-track-internal-promotion="202302_stage_en_PSS_BCRvideos"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/stage/Stage-Banner_BCR-video-tutorials_1280x400px_01.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/stage/Stage-Banner_BCR-video-tutorials_768x432px_01.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity="1" fill="#9bc3b7" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#9bc3b7" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#9bc3b7'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#9bc3b7" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#9bc3b7" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">Must-see tutorials: Easy way to move to USB-C</strong>
+        <div class="copy">Planning to power electronic devices via USB-C? Use our highly integrated USB Type-C port controller to easily replace legacy barrel connectors</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Watch now</span>
+                              </div>
+                        </a></div>
+            </article>
+            <article class="stageItem clearfix ocean" data-hashtag="">
+              <div class="stageItemContentWrapper">
+                <a href="&#x2f;cms&#x2f;en&#x2f;digital-transformation-of-product-development" data-track-name="promotionClick" data-track-internal-promotion="202302_stage_en_CSS_CIRRENT"><div class="media-wrapper cristal-middle">
+                            <picture>
+                                  <source media="(min-width: 768px)" srcset="/export/sites/default/_images/stage/Stage-Banner_eBook-Digital-Transformation_1280x400px.jpg_70312763.jpg">
+                                  <img
+                                    class="img-responsive-lazy"
+                                    src="/export/sites/default/_images/stage/Stage-Banner_eBook-Digital-Transformation_768x432px.jpg_1459425146.jpg"
+                                    
+                                    loading="lazy"
+                                    
+                                    alt="">
+                                </picture>
+                              <svg class="stage-mask stage-mask-cristal" viewBox="0 0 1280 400">
+  <polygon opacity=".7" fill="#5ea190" points="775,200 722,0 1280,0 1280,184"/>
+  <polygon fill="#9bc3b7" points="775,200 722,401 1280,401 1280,184 	"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="0" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="722" y1="401" x2="775" y2="200"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1280" y1="185" x2="775" y2="200"/>
+  <circle fill="#fff" cx="775" cy="200" r="7" stroke="#fff" stroke-width="20"/>
+</svg>
+<div class="stage-mask-fallback"></div><svg class="stage-mask stage-mask-bottom" viewBox="0 0 768 432">
+  <polygon points='0,434 0,428 768,400 768,434' fill='#9bc3b7'/>
+  <line x1='0' y1='428' x2='768' y2='400' stroke='#fff' stroke-width='6'/>
+</svg>
+<svg class="stage-mask stage-mask-outer" viewBox="0 0 1280 400">
+  <polygon fill="#9bc3b7" points="-1,0 -1,402 36,402 2,0"/>
+  <polygon fill="#9bc3b7" points="1281,402 1283,0 1245,0 1279,402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="1245" y1="0" x2="1279" y2="402"/>
+  <line fill="none" stroke="#fff" stroke-width="4" x1="2" y1="0" x2="35" y2="402"/>
+</svg>
+<div class="stage-mask-fallback"></div>
+</div>
+                          <div class="stageText cristal-middle">
+                            <div class="stageTextWrapper">
+        <strong class="stageTextHeadline">The digital transformation of product development</strong>
+        <div class="copy">Discover how data-driven product innovation accelerates profitability for IoT products in this new report from Aberdeen Strategy & Research</div>
+      </div>
+    <span class="btn btn-icon btn-white white-link">Learn more</span>
+                              </div>
+                        </a></div>
+            </article>
+            </div>
+      </div>
+    </div></section>
+            <nav class="centered">
+              <div class="row content">
+                <article class="col-md-12">
+                  <div  id="centercontainer" ><section>
+        <nav class="quickaccess mobile">
+          <ul class="accordion" id="accordion-98163ef2-2840-11e4-9059-556353e4878f">
+            <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-0">
+          Products</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-0">
+        <ul>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-0">
+                      Power</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-0">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;" class="link">Power Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;mosfet&#x2f;" class="link">MOSFET (Si/SiC)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;igbt&#x2f;" class="link">IGBT</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;gan-hemt-gallium-nitride-transistor&#x2f;" class="link">HEMT (GaN)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;diodes-thyristors&#x2f;" class="link">Diodes & Thyristors (Si/SiC)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;smart-power-switches&#x2f;" class="link">Smart Power Switches</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;linear-voltage-regulator&#x2f;" class="link">Linear Voltage Regulator</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;dc-dc-converters&#x2f;" class="link">DC-DC Converters</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;lighting-ics&#x2f;" class="link">LED Driver ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;gate-driver-ics&#x2f;" class="link">Gate Driver ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;motor-control-ics&#x2f;" class="link">Motor Control ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;ac-dc-power-conversion&#x2f;" class="link">AC-DC Power Conversion</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;solid-state-relay&#x2f;" class="link">Solid State Relay</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;class-d-audio-amplifier-ic&#x2f;" class="link">Audio Driver ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;isolated-industrial-interface&#x2f;" class="link">Isolated Industrial Interface</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;contactless-power-sensing-ics&#x2f;" class="link">Contactless power and sensing ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;intelligent-power-modules-ipm&#x2f;" class="link">Intelligent Power Modules (IPM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;power-management-ics-pmic-system-basis-chips-sbc&#x2f;" class="link">Power Management ICs (PMIC) & System Basis Chips (SBC)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;automotive-conventional-powertrain-ics&#x2f;" class="link">Automotive Conventional Powertrain ICs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;wireless-charging-ics&#x2f;" class="link">Wireless Charging ICs</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-1">
+                      ASIC</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-1">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;asic&#x2f;" class="link">ASIC Overview</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-2">
+                      Battery Management ICs</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-2">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;battery-management-ics&#x2f;" class="link">Battery Management ICs Overview</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-3">
+                      Clocks & Timing Solutions</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-3">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;" class="link">Clocks & Timing Solutions Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;clock-generators&#x2f;" class="link">Clock Generators</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;buffers&#x2f;" class="link">Buffers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;oscillators&#x2f;" class="link">Oscillators</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-4">
+                      ESD and Surge Protection</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-4">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;" class="link">ESD and Surge Protection Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;multi-purpose-esd-devices&#x2f;" class="link">Multi Purpose ESD Devices</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;low-capacitance-esd-devices&#x2f;" class="link">Low Capacitance ESD Devices</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;surge-protection-devices&#x2f;" class="link">Surge Protection Devices</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-5">
+                      High Reliability</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-5">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;" class="link">High Reliability Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;space&#x2f;" class="link">Space</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;new-space&#x2f;" class="link">New Space</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;defense&#x2f;" class="link">Defense</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;custom-services&#x2f;" class="link">High reliability custom services</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;quality&#x2f;" class="link">Quality</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;packaging&#x2f;" class="link">Packaging</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-6">
+                      Memories</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-6">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;" class="link">Memories Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;nor-flash&#x2f;" class="link">NOR Flash</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;f-ram-ferroelectric-ram&#x2f;" class="link">F-RAM (Ferroelectric RAM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;nvsram-non-volatile-sram&#x2f;" class="link">nvSRAM (non-volatile SRAM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;psram-pseudostatic-dram&#x2f;" class="link">PSRAM (Pseudostatic DRAM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;sram-static-ram&#x2f;" class="link">SRAM (Static RAM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;multi-chip-package-solutions&#x2f;" class="link">Multi-chip Package Solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;radiation-hardened-high-reliability-memories&#x2f;" class="link">Radiation hardened & high reliability memories</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;wafer-die-memory-solutions&#x2f;" class="link">Wafer & Die Memory Solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;embedded-flash-ip-solutions&#x2f;" class="link">Embedded Flash IP Solutions</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-7">
+                      Microcontroller</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-7">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;" class="link">Microcontroller Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-tricore-microcontroller&#x2f;" class="link">32-bit AURIX™ TriCore™  Microcontroller</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-psoc-arm-cortex-microcontroller&#x2f;" class="link">32-bit PSoC™ Arm® Cortex® Microcontroller</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-traveo-t2g-arm-cortex-microcontroller&#x2f;" class="link">32-bit TRAVEO™ T2G Arm® Cortex® Microcontroller</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-industrial-microcontroller-based-on-arm-cortex-m&#x2f;" class="link">32-bit XMC™ Industrial Microcontroller Arm® Cortex®-M</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;sensing-controller&#x2f;" class="link">Sensing controller</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;embedded-power-ics-system-on-chip-&#x2f;" class="link">MOTIX™ | Embedded Power ICs (System-on-Chip)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;legacy-microcontroller&#x2f;" class="link">Legacy Microcontroller</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-8">
+                      RF</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-8">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;" class="link">RF Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;antenna-centric-devices&#x2f;" class="link">Antenna centric solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-switches-spxt-dpxt&#x2f;" class="link">RF Switches</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;low-noise-amplifier-lna-ics&#x2f;" class="link">Low Noise Amplifier (LNA)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-modules-lmm&#x2f;" class="link">RF Modules (LMM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;antenna-switch-modules-asm&#x2f;" class="link">Antenna Switch Modules (ASM)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-transistor&#x2f;" class="link">RF Transistor</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-diode&#x2f;" class="link">RF Diode</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;wireless-control&#x2f;" class="link">Wireless Control</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;mmw-backhaul-and-fronthaul&#x2f;" class="link">mmW Backhaul and Fronthaul</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;high-reliability-discrete&#x2f;" class="link">High Reliability Discrete</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-9">
+                      Sensor</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-9">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;" class="link">Sensor Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;magnetic-sensors&#x2f;" class="link">Magnetic sensors</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;current-sensors&#x2f;" class="link">Current sensors</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;mems-microphones&#x2f;" class="link">MEMS microphones</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;pressure-sensors&#x2f;" class="link">Pressure sensors</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;co2-sensors&#x2f;" class="link">CO₂ sensor</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;radar-sensors&#x2f;" class="link">Radar sensors</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;tof-3d-image-sensors&#x2f;" class="link">ToF 3D image sensors</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-10">
+                      Security & Smart Card Solutions</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-10">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;" class="link">Security & Smart Card Solutions Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;cipurse-products&#x2f;" class="link">CIPURSE™ products</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;optiga-embedded-security-solutions&#x2f;" class="link">OPTIGA™ embedded security solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;secora-security-solutions&#x2f;" class="link">SECORA™ security solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;smart-card-solutions&#x2f;" class="link">Smart card solutions for government ID</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;contactless-memories&#x2f;" class="link">Contactless memories</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;security-controllers&#x2f;" class="link">Security controllers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;security-controllers-for-usb-tokens&#x2f;" class="link">Security controllers for USB tokens</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;smart-card-modules&#x2f;" class="link">Smart card modules</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;nfc-solutions&#x2f;" class="link">NFC Solutions</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-11">
+                      Small Signal Transistors & Diodes</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-11">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;" class="link">Small Signal Transistors & Diodes Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;bipolar-transistor&#x2f;" class="link">Bipolar Transistor</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;diode&#x2f;" class="link">Diode</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-12">
+                      Transceivers</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-12">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;" class="link">Transceivers Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;automotive-transceiver&#x2f;" class="link">Automotive Transceiver</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;control-communications&#x2f;" class="link">Control Communications</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;industrial-transceiver&#x2f;" class="link">Industrial Transceiver</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;phys&#x2f;" class="link">PHYs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;powerline-communications&#x2f;" class="link">Powerline Communications</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-13">
+                      Universal Serial Bus (USB)</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-13">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;" class="link">Universal Serial Bus (USB) Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-power-delivery-controllers&#x2f;" class="link">USB-C Power Delivery Controllers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-peripheral-controllers-for-superspeed&#x2f;" class="link">USB Peripheral Controllers for SuperSpeed</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;ez-usb-hub-controllers&#x2f;" class="link">USB Hub Controllers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-charging-port-controllers&#x2f;" class="link">USB-C Charging Port Controllers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-high-voltage-microcontrollers&#x2f;" class="link">USB-C High Voltage Microcontrollers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-ac-dc-and-dc-dc-charging-solutions&#x2f;" class="link">USB-C AC-DC and DC-DC Charging Solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-2.0-peripheral-controllers&#x2f;" class="link">USB 2.0 Peripheral Controllers</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-14">
+                      Wireless Connectivity</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-14">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;" class="link">Wireless Connectivity</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-wi-fi-plus-bluetooth-combos&#x2f;" class="link">AIROC™ Wi-Fi + Bluetooth® Combos</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-wi-fi-mcus&#x2f;" class="link">AIROC™ Wi-Fi MCUs</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-automotive-wireless&#x2f;" class="link">AIROC™ Automotive Wireless</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-bluetooth-le-bluetooth-multiprotocol&#x2f;" class="link">AIROC™ Bluetooth® & Multiprotocol</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-15">
+                      Software</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-0-15">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;" class="link">Software Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;" class="link">CIRRENT™ Product Analytics</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;cirrent-iot-network-intelligence-ini&#x2f;" class="link">CIRRENT™ IoT Network Intelligence (INI)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;cirrent-mobile-app-intelligence-mai&#x2f;" class="link">CIRRENT™ Mobile App Intelligence (MAI)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-cloud-id&#x2f;" class="link">CIRRENT™ Cloud ID</a></li>
+                </ul>
+            </li>
+          </ul>
+          </div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-1">
+          Applications</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-1">
+        <ul>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-0">
+                      Automotive</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-0">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;" class="link">Automotive overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;automotive-security&#x2f;" class="link">Automotive security</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;body-electronics-and-lighting&#x2f;" class="link">Body electronics and lighting</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;chassis-safety-and-adas&#x2f;" class="link">Chassis, safety and ADAS</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;commercial-construction-and-agricultural-vehicles-cav&#x2f;" class="link">Commercial, construction and agricultural vehicles (CAV)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;electric-drive-train&#x2f;" class="link">Electric drivetrain</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;infotainment&#x2f;" class="link">Infotainment</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;powertrain-systems&#x2f;" class="link">Powertrain systems</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-1">
+                      Communication</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-1">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;" class="link">Communication overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;telecom-infrastructure&#x2f;" class="link">Telecom infrastructure</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;communication-switches-and-routers&#x2f;" class="link">Communication switches and routers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;computing-and-data-storage&#x2f;" class="link">Datacenter & Computing</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;data-processing&#x2f;" class="link">Data processing</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-2">
+                      Consumer</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-2">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;" class="link">Consumer overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;wearables&#x2f;" class="link">Wearables</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;smart-building&#x2f;" class="link">Smart building</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;home-appliances&#x2f;" class="link">Home appliances</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;home-entertainment&#x2f;" class="link">Home entertainment</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;light-vehicles&#x2f;" class="link">Light vehicles</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;mobile-devices&#x2f;" class="link">Mobile devices</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;multicopters-and-drones&#x2f;" class="link">Multicopters and drones</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;power-tools&#x2f;" class="link">Power tools</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;robotics&#x2f;service-robots&#x2f;" class="link">Domestic robots</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;smart-home&#x2f;" class="link">Smart home</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;smart-speaker&#x2f;" class="link">Smart speaker</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;adapters-and-chargers&#x2f;wireless-charging&#x2f;" class="link">Wireless charging</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-3">
+                      Industrial</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-3">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;" class="link">Industrial overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;commercial-construction-and-agricultural-vehicles-cav&#x2f;" class="link">Commercial, construction and agricultural vehicles (CAV)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;energy-storage-systems&#x2f;" class="link">Energy Storage Systems</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;fast-ev-charging&#x2f;" class="link">Fast EV charging</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-automation&#x2f;" class="link">Industrial automation</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-drives&#x2f;" class="link">Industrial drives</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-heating-and-welding&#x2f;" class="link">Industrial heating and welding</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;led-lighting&#x2f;" class="link">LED lighting</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;medical-healthcare&#x2f;medical-ventilator&#x2f;" class="link">Medical Ventilator</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;motor-control-and-drives&#x2f;" class="link">Motor control and drives</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;portable-generators&#x2f;" class="link">Portable generators</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;power-transmission-and-distribution&#x2f;" class="link">Power transmission and distribution</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;robotics&#x2f;" class="link">Robotics</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;smart-building&#x2f;" class="link">Smart building</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;solar-energy-systems&#x2f;" class="link">Solutions for solar energy systems</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;space&#x2f;" class="link">Space</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;traction&#x2f;" class="link">Traction</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;wind-energy-systems&#x2f;" class="link">Wind energy systems</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-4">
+                      Security</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-4">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;" class="link">Security overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;authentication-and-brand-protection&#x2f;" class="link">Authentication and brand protection</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;esim-applications&#x2f;" class="link">eSIM applications</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;government-identification&#x2f;" class="link">Government identification</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;nfc-payment-solutions&#x2f;" class="link">NFC payment solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;security-for-iot&#x2f;" class="link">Security for IoT</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;ticketing-solutions&#x2f;" class="link">Ticketing solutions</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-5">
+                      Solutions</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-1-5">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;" class="link">Solutions overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;adapters-and-chargers&#x2f;" class="link">Adapters and chargers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;battery-management-system&#x2f;" class="link">Battery Management System (BMS)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;motor-control-and-drives&#x2f;" class="link">Motor control and drives</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;power-conversion&#x2f;" class="link">Power conversion</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;power-supplies&#x2f;" class="link">Power supplies (SMPS)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;" class="link">Sensor solutions</a></li>
+                </ul>
+            </li>
+          </ul>
+          </div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-2">
+          Design Support</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-2">
+        <ul>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-0">
+                      Finder & Selection Tools</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-0">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;" class="link">Product Finders (MOSFET, IGBT, MCU, etc.)</a></li>
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;solutionfinder.infineon.com&#x2f;application&#x2f;en&#x3f;" class="link" target="_blank">Solution Finder</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;partner-finder&#x2f;" class="link">Partner Finder</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;cross-reference&#x2f;" class="link">Cross Reference Search</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;" class="link">OPN Finder</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-1">
+                      Development Tools</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-1">
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools" class="link" target="_blank">Development Tools Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;modustoolbox-software&#x2f;" class="link">ModusToolbox™ Software</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;aurix-tools&#x2f;" class="link">AURIX™ Tools</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;psoc-software&#x2f;" class="link">PSoC™ Software</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;usb-controllers-sdk&#x2f;" class="link">USB Controllers SDK</a></li>
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools&#x3f;_ga&#x3d;2.175974754.1762525503.1645959690-1586694068.1642414146" class="link" target="_blank">Infineon Developer Center</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-2">
+                      Embedded Software</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-2">
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;software" class="link" target="_blank">Embedded Software Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;code-examples&#x2f;psoc-6-code-examples-for-modustoolbox&#x2f;" class="link">PSoC™ 6 Code Examples for ModusToolbox™</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;aurix-embedded-sw&#x2f;" class="link">AURIX™ Embedded Software</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;psoc-6-peripheral-driver-library-pdl-for-psoc-creator&#x2f;" class="link">PSoC™ 6 Peripheral Driver Library (PDL) for PSoC Creator</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;airoc-wi-fi-bluetooth-linux-and-android-drivers&#x2f;" class="link">AIROC™ Wi-Fi & Bluetooth Linux and Android Drivers</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;memories-for-embedded-systems&#x2f;" class="link">Memories for Embedded Systems</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-3">
+                      Simulation & Modeling</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-3">
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools" class="link" target="_blank">Simulation & Modeling Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;iposim-infineon-online-power-simulation-platform&#x2f;" class="link">IPOSIM – Infineon Online Power Simulation Platform</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;ifxdesigner.html" class="link">Infineon Designer (Online SPICE Simulator)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;sensor.html" class="link">Magnetic Sensor Simulation</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;ipm.html" class="link">CIPOS™ IPM Simulation Tool</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;simulation-model&#x2f;" class="link">Simulation Model</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;simulation-modeling&#x2f;poweresim-switch-mode-power-supply-simulation-tool&#x2f;" class="link">PowerEsim Switch Mode Power Supply Simulation Tool</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-4">
+                      Evaluation Boards & Kits</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-4">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;evaluation-board&#x2f;" class="link">Evaluation Board Finder</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;PSoC-FMx-MCU-board&#x2f;" class="link">PSoC™ and FMx MCU Board & Kit Finder</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;AURIX-microcontroller-boards&#x2f;" class="link">AURIX™ Microcontroller Boards</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;infineon-for-makers&#x2f;" class="link">Infineon for Makers</a></li>
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;www.hackster.io&#x2f;infineon&#x2f;" class="link" target="_blank">Hackster.io Infineon</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-5">
+                      Support, Community, Partners</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-2-5">
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;community.infineon.com&#x2f;" class="link" target="_blank">Infineon Developer Community</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;" class="link">Partner Ecosystem</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;university-alliance&#x2f;" class="link">University Alliance</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;" class="link">Get Support</a></li>
+                <li>
+                    <a href="https&#x3a;&#x2f;&#x2f;cypress.force.com&#x2f;employee" class="link" target="_blank">Legacy Cypress Support (MyCases)</a></li>
+                </ul>
+            </li>
+          </ul>
+          </div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-3">
+          Focus areas</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-3">
+        <ul>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-0">
+                      Internet of Things (IoT)</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-0">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;" class="link">Make IoT work</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;iot-solutions&#x2f;&#x3f;intc&#x3d;000miwmp006" class="link">IoT solutions</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-home-and-building&#x2f;&#x3f;intc&#x3d;000miwmp002" class="link">Smart home & smart building</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-things&#x2f;&#x3f;intc&#x3d;000miwmp001" class="link">Smart things</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-factory&#x2f;&#x3f;intc&#x3d;000miwmp003" class="link">Smart factory</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-car&#x2f;&#x3f;intc&#x3d;000miwmp004" class="link">Smart car</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;data-infrastructure&#x2f;&#x3f;intc&#x3d;000miwmp005" class="link">Communication & data infrastructure</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-1">
+                      Energy efficiency technologies</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-1">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;" class="link">Making green energy happen</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-generation&#x2f;" class="link">Electric power generation</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-transmission-storage&#x2f;" class="link">Electric power transmission & storage</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-consumption&#x2f;" class="link">Electric power consumption</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-2">
+                      Mobility</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-3-2">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;" class="link">Driving sustainable mobility</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;passenger-car&#x2f;" class="link">Passenger Car</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;micromobility&#x2f;" class="link">Micromobility</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;public-transport&#x2f;" class="link">Public Transport</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;freight-transport&#x2f;" class="link">Freight Transport</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;charging-infrastructure&#x2f;" class="link">Charging Infrastructure</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;mobility-as-a-service&#x2f;" class="link">Mobility as a Service</a></li>
+                </ul>
+            </li>
+          </ul>
+          </div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-support-7">
+          Support</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-support-7">
+        <ul class="nav-col second-level pointer-target" >
+  <li class="support faq">
+      <span class="glyphicon glyphicon-support-faq"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;">Frequently asked Questions</a></li>
+  <li class="support forum">
+      <span class="glyphicon glyphicon-support-forum"></span>
+      <a href="https&#x3a;&#x2f;&#x2f;community.infineon.com&#x2f;" target="_blank">Community</a></li>
+  <li class="support chat">
+      <span class="glyphicon glyphicon-support-chat"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;">Online Chat 24/7</a></li>
+  <li class="support phone">
+      <span class="glyphicon glyphicon-support-phone"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;service-center&#x2f;">Toll Free Call</a></li>
+  <li class="support email">
+      <span class="glyphicon glyphicon-support-email"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;product-support-form&#x2f;">Product Support</a></li>
+  </ul></div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-8">
+          Technology</h1>
+
+      <div class="collapse" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-applications-8">
+        <ul>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-0">
+                      .XT interconnection technology</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-0">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;.xt&#x2f;" class="link">.XT interconnection technology Overview</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-1">
+                      MOTIX™</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-1">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;motix&#x2f;" class="link">MOTIX™ Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;motix-software&#x2f;" class="link">MOTIX™ Software & Tools</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-2">
+                      Wide Bandgap Semiconductors (SiC/GaN)</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-2">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;wide-bandgap-semiconductors-sic-gan&#x2f;" class="link">Wide Bandgap Semiconductors (SiC/GaN) Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;silicon-carbide-sic&#x2f;" class="link">Silicon Carbide (SiC)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;gallium-nitride-gan&#x2f;" class="link">Gallium Nitride (GaN)</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-3">
+                      Dependability</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-3">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;" class="link">Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;functional-safety&#x20;" class="link">Functional safety</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;security" class="link">Security</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;automotive-quality" class="link">Automotive Quality</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-4">
+                      Packages</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-4">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;" class="link">Packages Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;&#x23;smd" class="link">Surface Mounted Devices (SMD)</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;&#x23;thd" class="link">Through Hole Devices (THD)</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-5">
+                      Quality</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-5">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;quality&#x2f;" class="link">Quality Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;quality&#x2f;&#x23;certificates" class="link">IATF 16949 and ISO 9001 Certificates</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-6">
+                      Orderable Part Number Information</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-6">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;" class="link">Orderable Part Number Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;product-identifiers-at-infineon&#x2f;" class="link">Orderable Part Number Information</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;opn-structure&#x2f;" class="link">Structure</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;orderable-part-number-opn-translation-table&#x2f;" class="link">Translation table</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;opn-frequently-asked-questions&#x2f;" class="link">FAQs</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-7">
+                      Product Material Declaration</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-7">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;products-material-declaration&#x2f;" class="link">Products Material Declaration Overview</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-8">
+                      Intuitive Sensing</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-8">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;intuitive-sensing&#x2f;" class="link">Intuitive Sensing Overview</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;alarm-system&#x2f;" class="link">Alarm System</a></li>
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;presence-detection&#x2f;" class="link">Radar Presence Detection</a></li>
+                </ul>
+            </li>
+          <li class="panel">
+              <div class="heading">
+                <h2>
+                  <a class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f-applications"
+                      href="#collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-9">
+                      China RoHS</a>
+                </h2>
+              </div>
+              <ul class="collapse" id="collapse-98163ef2-2840-11e4-9059-556353e4878f-application-8-9">
+                <li>
+                    <a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;material&#x2f;" class="link">China RoHS</a></li>
+                </ul>
+            </li>
+          </ul>
+          </div>
+    </li>
+    <li class="panel">
+      <h1 class="blur collapsed" data-toggle="collapse" data-parent="#accordion-98163ef2-2840-11e4-9059-556353e4878f" data-target="#accordion-98163ef2-2840-11e4-9059-556353e4878f-tool-9">
+          Partners</h1>
+
+      <div class="collapse secondlevel" id="accordion-98163ef2-2840-11e4-9059-556353e4878f-tool-9">
+        <ul class="linklist">
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;">Partner Ecosystem</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-finder&#x2f;">Partner Finder</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;infineon-security-partner-network&#x2f;">Security Partners</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;wireless-module-partners&#x2f;">Wireless Module Partners</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;memory-chipset-partners&#x2f;">Memory Chipset Partners</a></li>
+          <li>
+              <a href="https&#x3a;&#x2f;&#x2f;ecosystem.infineon.cn&#x2f;index.html" target="_blank">Chinese Partners</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;startups&#x2f;">Startup Cooperation</a></li>
+          <li>
+              <a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;silicon-valley-innovation-center&#x2f;">Silicon Valley Innovation Center</a></li>
+          </ul>
+          </div>
+    </li>
+  </ul>
+        </nav>
+        <!-- show quickaccess in desktop view -->
+        <nav id="quickaccess" class="quickaccess desktop" data-path="/.content/hometabs/ht_00001.html">
+          <svg id="pointer-root" class="svg-pointer"/>
+          <ul class="tabs-nav nav-col root-nav pointer-target" data-pointer="pointer-root">
+            <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0">
+                      Products</a></li>
+                <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1">
+                      Applications</a></li>
+                <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2">
+                      Design Support</a></li>
+                <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3">
+                      Focus areas</a></li>
+                <li><a class="tab"
+                      href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-support-7">Support</a></li>
+                <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8">
+                      Technology</a></li>
+                <li><a class="tab"
+                      href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-tools-9">Partners</a></li>
+                </ul>
+          <div class="content">
+            <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0" class="clearfix">
+      <h1 class="sr-only">Products</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0" class="svg-pointer"/>
+      <ul class="tabs-nav nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0">
+        <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-0">Power</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-1">ASIC</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-2">Battery Management ICs</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-3">Clocks & Timing Solutions</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-4">ESD and Surge Protection</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-5">High Reliability</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-6">Memories</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-7">Microcontroller</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-8">RF</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-9">Sensor</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-10">Security & Smart Card Solutions</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-11">Small Signal Transistors & Diodes</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-12">Transceivers</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-13">Universal Serial Bus (USB)</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-14">Wireless Connectivity</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-15">Software</a></li>
+        </ul>
+
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-0" class="clearfix">
+          <h2 class="sr-only ">Power</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-0" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-0">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;">Power Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;mosfet&#x2f;">MOSFET (Si/SiC)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;igbt&#x2f;">IGBT</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;gan-hemt-gallium-nitride-transistor&#x2f;">HEMT (GaN)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;diodes-thyristors&#x2f;">Diodes & Thyristors (Si/SiC)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;smart-power-switches&#x2f;">Smart Power Switches</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;linear-voltage-regulator&#x2f;">Linear Voltage Regulator</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;dc-dc-converters&#x2f;">DC-DC Converters</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;lighting-ics&#x2f;">LED Driver ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;gate-driver-ics&#x2f;">Gate Driver ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;motor-control-ics&#x2f;">Motor Control ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;ac-dc-power-conversion&#x2f;">AC-DC Power Conversion</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;solid-state-relay&#x2f;">Solid State Relay</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;class-d-audio-amplifier-ic&#x2f;">Audio Driver ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;isolated-industrial-interface&#x2f;">Isolated Industrial Interface</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;contactless-power-sensing-ics&#x2f;">Contactless power and sensing ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;intelligent-power-modules-ipm&#x2f;">Intelligent Power Modules (IPM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;power-management-ics-pmic-system-basis-chips-sbc&#x2f;">Power Management ICs (PMIC) & System Basis Chips (SBC)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;automotive-conventional-powertrain-ics&#x2f;">Automotive Conventional Powertrain ICs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;power&#x2f;wireless-charging-ics&#x2f;">Wireless Charging ICs</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-1" class=" hidden clearfix">
+          <h2 class="sr-only ">ASIC</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-1" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-1">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;asic&#x2f;">ASIC Overview</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-2" class=" hidden clearfix">
+          <h2 class="sr-only ">Battery Management ICs</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-2" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-2">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;battery-management-ics&#x2f;">Battery Management ICs Overview</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-3" class=" hidden clearfix">
+          <h2 class="sr-only ">Clocks & Timing Solutions</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-3" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-3">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;">Clocks & Timing Solutions Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;clock-generators&#x2f;">Clock Generators</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;buffers&#x2f;">Buffers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;clocks-timing-solutions&#x2f;oscillators&#x2f;">Oscillators</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-4" class=" hidden clearfix">
+          <h2 class="sr-only ">ESD and Surge Protection</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-4" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-4">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;">ESD and Surge Protection Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;multi-purpose-esd-devices&#x2f;">Multi Purpose ESD Devices</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;low-capacitance-esd-devices&#x2f;">Low Capacitance ESD Devices</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;esd-and-surge-protection&#x2f;surge-protection-devices&#x2f;">Surge Protection Devices</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-5" class=" hidden clearfix">
+          <h2 class="sr-only ">High Reliability</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-5" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-5">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;">High Reliability Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;space&#x2f;">Space</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;new-space&#x2f;">New Space</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;defense&#x2f;">Defense</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;custom-services&#x2f;">High reliability custom services</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;quality&#x2f;">Quality</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;high-reliability&#x2f;packaging&#x2f;">Packaging</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-6" class=" hidden clearfix">
+          <h2 class="sr-only ">Memories</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-6" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-6">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;">Memories Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;nor-flash&#x2f;">NOR Flash</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;f-ram-ferroelectric-ram&#x2f;">F-RAM (Ferroelectric RAM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;nvsram-non-volatile-sram&#x2f;">nvSRAM (non-volatile SRAM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;psram-pseudostatic-dram&#x2f;">PSRAM (Pseudostatic DRAM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;sram-static-ram&#x2f;">SRAM (Static RAM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;multi-chip-package-solutions&#x2f;">Multi-chip Package Solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;radiation-hardened-high-reliability-memories&#x2f;">Radiation hardened & high reliability memories</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;wafer-die-memory-solutions&#x2f;">Wafer & Die Memory Solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;memories&#x2f;embedded-flash-ip-solutions&#x2f;">Embedded Flash IP Solutions</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-7" class=" hidden clearfix">
+          <h2 class="sr-only ">Microcontroller</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-7" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-7">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;">Microcontroller Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-tricore-microcontroller&#x2f;">32-bit AURIX™ TriCore™  Microcontroller</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-psoc-arm-cortex-microcontroller&#x2f;">32-bit PSoC™ Arm® Cortex® Microcontroller</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-traveo-t2g-arm-cortex-microcontroller&#x2f;">32-bit TRAVEO™ T2G Arm® Cortex® Microcontroller</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;32-bit-industrial-microcontroller-based-on-arm-cortex-m&#x2f;">32-bit XMC™ Industrial Microcontroller Arm® Cortex®-M</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;sensing-controller&#x2f;">Sensing controller</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;embedded-power-ics-system-on-chip-&#x2f;">MOTIX™ | Embedded Power ICs (System-on-Chip)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;microcontroller&#x2f;legacy-microcontroller&#x2f;">Legacy Microcontroller</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-8" class=" hidden clearfix">
+          <h2 class="sr-only ">RF</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-8" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-8">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;">RF Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;antenna-centric-devices&#x2f;">Antenna centric solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-switches-spxt-dpxt&#x2f;">RF Switches</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;low-noise-amplifier-lna-ics&#x2f;">Low Noise Amplifier (LNA)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-modules-lmm&#x2f;">RF Modules (LMM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;antenna-switch-modules-asm&#x2f;">Antenna Switch Modules (ASM)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-transistor&#x2f;">RF Transistor</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;rf-diode&#x2f;">RF Diode</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;wireless-control&#x2f;">Wireless Control</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;mmw-backhaul-and-fronthaul&#x2f;">mmW Backhaul and Fronthaul</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;rf&#x2f;high-reliability-discrete&#x2f;">High Reliability Discrete</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-9" class=" hidden clearfix">
+          <h2 class="sr-only ">Sensor</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-9" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-9">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;">Sensor Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;magnetic-sensors&#x2f;">Magnetic sensors</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;current-sensors&#x2f;">Current sensors</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;mems-microphones&#x2f;">MEMS microphones</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;pressure-sensors&#x2f;">Pressure sensors</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;co2-sensors&#x2f;">CO₂ sensor</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;radar-sensors&#x2f;">Radar sensors</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;sensor&#x2f;tof-3d-image-sensors&#x2f;">ToF 3D image sensors</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-10" class=" hidden clearfix">
+          <h2 class="sr-only ">Security & Smart Card Solutions</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-10" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-10">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;">Security & Smart Card Solutions Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;cipurse-products&#x2f;">CIPURSE™ products</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;optiga-embedded-security-solutions&#x2f;">OPTIGA™ embedded security solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;secora-security-solutions&#x2f;">SECORA™ security solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;smart-card-solutions&#x2f;">Smart card solutions for government ID</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;contactless-memories&#x2f;">Contactless memories</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;security-controllers&#x2f;">Security controllers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;security-controllers-for-usb-tokens&#x2f;">Security controllers for USB tokens</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;smart-card-modules&#x2f;">Smart card modules</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;security-smart-card-solutions&#x2f;nfc-solutions&#x2f;">NFC Solutions</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-11" class=" hidden clearfix">
+          <h2 class="sr-only ">Small Signal Transistors & Diodes</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-11" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-11">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;">Small Signal Transistors & Diodes Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;bipolar-transistor&#x2f;">Bipolar Transistor</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;small-signal-transistors-diodes&#x2f;diode&#x2f;">Diode</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-12" class=" hidden clearfix">
+          <h2 class="sr-only ">Transceivers</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-12" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-12">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;">Transceivers Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;automotive-transceiver&#x2f;">Automotive Transceiver</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;control-communications&#x2f;">Control Communications</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;industrial-transceiver&#x2f;">Industrial Transceiver</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;phys&#x2f;">PHYs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;transceivers&#x2f;powerline-communications&#x2f;">Powerline Communications</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-13" class=" hidden clearfix">
+          <h2 class="sr-only ">Universal Serial Bus (USB)</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-13" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-13">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;">Universal Serial Bus (USB) Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-power-delivery-controllers&#x2f;">USB-C Power Delivery Controllers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-peripheral-controllers-for-superspeed&#x2f;">USB Peripheral Controllers for SuperSpeed</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;ez-usb-hub-controllers&#x2f;">USB Hub Controllers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-charging-port-controllers&#x2f;">USB-C Charging Port Controllers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-high-voltage-microcontrollers&#x2f;">USB-C High Voltage Microcontrollers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-c-ac-dc-and-dc-dc-charging-solutions&#x2f;">USB-C AC-DC and DC-DC Charging Solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;universal-serial-bus&#x2f;usb-2.0-peripheral-controllers&#x2f;">USB 2.0 Peripheral Controllers</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-14" class=" hidden clearfix">
+          <h2 class="sr-only ">Wireless Connectivity</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-14" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-14">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;">Wireless Connectivity</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-wi-fi-plus-bluetooth-combos&#x2f;">AIROC™ Wi-Fi + Bluetooth® Combos</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-wi-fi-mcus&#x2f;">AIROC™ Wi-Fi MCUs</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-automotive-wireless&#x2f;">AIROC™ Automotive Wireless</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;wireless-connectivity&#x2f;airoc-bluetooth-le-bluetooth-multiprotocol&#x2f;">AIROC™ Bluetooth® & Multiprotocol</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-0-15" class=" hidden clearfix">
+          <h2 class="sr-only ">Software</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-15" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-0-15">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;">Software Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;">CIRRENT™ Product Analytics</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;cirrent-iot-network-intelligence-ini&#x2f;">CIRRENT™ IoT Network Intelligence (INI)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-product-analytics&#x2f;cirrent-mobile-app-intelligence-mai&#x2f;">CIRRENT™ Mobile App Intelligence (MAI)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;service&#x2f;cloud&#x2f;cirrent-cloud-id&#x2f;">CIRRENT™ Cloud ID</a></li></ul>
+        </div>
+      </div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1" class="hidden clearfix">
+      <h1 class="sr-only">Applications</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1" class="svg-pointer"/>
+      <ul class="tabs-nav nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1">
+        <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-0">Automotive</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-1">Communication</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-2">Consumer</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-3">Industrial</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-4">Security</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-5">Solutions</a></li>
+        </ul>
+
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-0" class="clearfix">
+          <h2 class="sr-only ">Automotive</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-0" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-0">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;">Automotive overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;automotive-security&#x2f;">Automotive security</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;body-electronics-and-lighting&#x2f;">Body electronics and lighting</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;chassis-safety-and-adas&#x2f;">Chassis, safety and ADAS</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;commercial-construction-and-agricultural-vehicles-cav&#x2f;">Commercial, construction and agricultural vehicles (CAV)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;electric-drive-train&#x2f;">Electric drivetrain</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;infotainment&#x2f;">Infotainment</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;powertrain-systems&#x2f;">Powertrain systems</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-1" class=" hidden clearfix">
+          <h2 class="sr-only ">Communication</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-1" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-1">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;">Communication overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;telecom-infrastructure&#x2f;">Telecom infrastructure</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;communication-switches-and-routers&#x2f;">Communication switches and routers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;computing-and-data-storage&#x2f;">Datacenter & Computing</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;communication&#x2f;data-processing&#x2f;">Data processing</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-2" class=" hidden clearfix">
+          <h2 class="sr-only ">Consumer</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-2" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-2">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;">Consumer overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;wearables&#x2f;">Wearables</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;smart-building&#x2f;">Smart building</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;home-appliances&#x2f;">Home appliances</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;home-entertainment&#x2f;">Home entertainment</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;light-vehicles&#x2f;">Light vehicles</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;mobile-devices&#x2f;">Mobile devices</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;multicopters-and-drones&#x2f;">Multicopters and drones</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;power-tools&#x2f;">Power tools</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;robotics&#x2f;service-robots&#x2f;">Domestic robots</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;smart-home&#x2f;">Smart home</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;consumer&#x2f;smart-speaker&#x2f;">Smart speaker</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;adapters-and-chargers&#x2f;wireless-charging&#x2f;">Wireless charging</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-3" class=" hidden clearfix">
+          <h2 class="sr-only ">Industrial</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-3" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-3">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;">Industrial overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;automotive&#x2f;commercial-construction-and-agricultural-vehicles-cav&#x2f;">Commercial, construction and agricultural vehicles (CAV)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;energy-storage-systems&#x2f;">Energy Storage Systems</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;fast-ev-charging&#x2f;">Fast EV charging</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-automation&#x2f;">Industrial automation</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-drives&#x2f;">Industrial drives</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;industrial-heating-and-welding&#x2f;">Industrial heating and welding</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;led-lighting&#x2f;">LED lighting</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;medical-healthcare&#x2f;medical-ventilator&#x2f;">Medical Ventilator</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;motor-control-and-drives&#x2f;">Motor control and drives</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;portable-generators&#x2f;">Portable generators</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;power-transmission-and-distribution&#x2f;">Power transmission and distribution</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;robotics&#x2f;">Robotics</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;smart-building&#x2f;">Smart building</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;solar-energy-systems&#x2f;">Solutions for solar energy systems</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;space&#x2f;">Space</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;traction&#x2f;">Traction</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;industrial&#x2f;wind-energy-systems&#x2f;">Wind energy systems</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-4" class=" hidden clearfix">
+          <h2 class="sr-only ">Security</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-4" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-4">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;">Security overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;authentication-and-brand-protection&#x2f;">Authentication and brand protection</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;esim-applications&#x2f;">eSIM applications</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;government-identification&#x2f;">Government identification</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;nfc-payment-solutions&#x2f;">NFC payment solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;security-for-iot&#x2f;">Security for IoT</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;security&#x2f;ticketing-solutions&#x2f;">Ticketing solutions</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-1-5" class=" hidden clearfix">
+          <h2 class="sr-only ">Solutions</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-5" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-1-5">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;">Solutions overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;adapters-and-chargers&#x2f;">Adapters and chargers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;battery-management-system&#x2f;">Battery Management System (BMS)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;motor-control-and-drives&#x2f;">Motor control and drives</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;power-conversion&#x2f;">Power conversion</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;power-supplies&#x2f;">Power supplies (SMPS)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;">Sensor solutions</a></li></ul>
+        </div>
+      </div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2" class="hidden clearfix">
+      <h1 class="sr-only">Design Support</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2" class="svg-pointer"/>
+      <ul class="tabs-nav nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2">
+        <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-0">Finder & Selection Tools</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-1">Development Tools</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-2">Embedded Software</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-3">Simulation & Modeling</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-4">Evaluation Boards & Kits</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-5">Support, Community, Partners</a></li>
+        </ul>
+
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-0" class="clearfix">
+          <h2 class="sr-only ">Finder & Selection Tools</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-0" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-0">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;">Product Finders (MOSFET, IGBT, MCU, etc.)</a></li><li><a href="https&#x3a;&#x2f;&#x2f;solutionfinder.infineon.com&#x2f;application&#x2f;en&#x3f;" target="_blank">Solution Finder</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;partner-finder&#x2f;">Partner Finder</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;cross-reference&#x2f;">Cross Reference Search</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;">OPN Finder</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-1" class=" hidden clearfix">
+          <h2 class="sr-only ">Development Tools</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-1" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-1">
+            <li><a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools" target="_blank">Development Tools Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;modustoolbox-software&#x2f;">ModusToolbox™ Software</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;aurix-tools&#x2f;">AURIX™ Tools</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;psoc-software&#x2f;">PSoC™ Software</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;sdk&#x2f;usb-controllers-sdk&#x2f;">USB Controllers SDK</a></li><li><a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools&#x3f;_ga&#x3d;2.175974754.1762525503.1645959690-1586694068.1642414146" target="_blank">Infineon Developer Center</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-2" class=" hidden clearfix">
+          <h2 class="sr-only ">Embedded Software</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-2" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-2">
+            <li><a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;software" target="_blank">Embedded Software Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;code-examples&#x2f;psoc-6-code-examples-for-modustoolbox&#x2f;">PSoC™ 6 Code Examples for ModusToolbox™</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;aurix-embedded-sw&#x2f;">AURIX™ Embedded Software</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;psoc-6-peripheral-driver-library-pdl-for-psoc-creator&#x2f;">PSoC™ 6 Peripheral Driver Library (PDL) for PSoC Creator</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;airoc-wi-fi-bluetooth-linux-and-android-drivers&#x2f;">AIROC™ Wi-Fi & Bluetooth Linux and Android Drivers</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;software&#x2f;device-driver-libraries&#x2f;memories-for-embedded-systems&#x2f;">Memories for Embedded Systems</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-3" class=" hidden clearfix">
+          <h2 class="sr-only ">Simulation & Modeling</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-3" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-3">
+            <li><a href="https&#x3a;&#x2f;&#x2f;softwaretools.infineon.com&#x2f;tools" target="_blank">Simulation & Modeling Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;iposim-infineon-online-power-simulation-platform&#x2f;">IPOSIM – Infineon Online Power Simulation Platform</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;ifxdesigner.html">Infineon Designer (Online SPICE Simulator)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;sensor.html">Magnetic Sensor Simulation</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;ipm.html">CIPOS™ IPM Simulation Tool</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;simulation-model&#x2f;">Simulation Model</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;tools&#x2f;simulation-modeling&#x2f;poweresim-switch-mode-power-supply-simulation-tool&#x2f;">PowerEsim Switch Mode Power Supply Simulation Tool</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-4" class=" hidden clearfix">
+          <h2 class="sr-only ">Evaluation Boards & Kits</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-4" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-4">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;evaluation-board&#x2f;">Evaluation Board Finder</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;design-support&#x2f;finder-selection-tools&#x2f;product-finder&#x2f;PSoC-FMx-MCU-board&#x2f;">PSoC™ and FMx MCU Board & Kit Finder</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;AURIX-microcontroller-boards&#x2f;">AURIX™ Microcontroller Boards</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;landing&#x2f;infineon-for-makers&#x2f;">Infineon for Makers</a></li><li><a href="https&#x3a;&#x2f;&#x2f;www.hackster.io&#x2f;infineon&#x2f;" target="_blank">Hackster.io Infineon</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-2-5" class=" hidden clearfix">
+          <h2 class="sr-only ">Support, Community, Partners</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-5" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-2-5">
+            <li><a href="https&#x3a;&#x2f;&#x2f;community.infineon.com&#x2f;" target="_blank">Infineon Developer Community</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;">Partner Ecosystem</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;university-alliance&#x2f;">University Alliance</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;">Get Support</a></li><li><a href="https&#x3a;&#x2f;&#x2f;cypress.force.com&#x2f;employee" target="_blank">Legacy Cypress Support (MyCases)</a></li></ul>
+        </div>
+      </div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3" class="hidden clearfix">
+      <h1 class="sr-only">Focus areas</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3" class="svg-pointer"/>
+      <ul class="tabs-nav nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3">
+        <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-0">Internet of Things (IoT)</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-1">Energy efficiency technologies</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-2">Mobility</a></li>
+        </ul>
+
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-0" class="clearfix">
+          <h2 class="sr-only ">Internet of Things (IoT)</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-0" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-0">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;">Make IoT work</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;iot-solutions&#x2f;&#x3f;intc&#x3d;000miwmp006">IoT solutions</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-home-and-building&#x2f;&#x3f;intc&#x3d;000miwmp002">Smart home & smart building</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-things&#x2f;&#x3f;intc&#x3d;000miwmp001">Smart things</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-factory&#x2f;&#x3f;intc&#x3d;000miwmp003">Smart factory</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;smart-car&#x2f;&#x3f;intc&#x3d;000miwmp004">Smart car</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;make-iot-work&#x2f;data-infrastructure&#x2f;&#x3f;intc&#x3d;000miwmp005">Communication & data infrastructure</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-1" class=" hidden clearfix">
+          <h2 class="sr-only ">Energy efficiency technologies</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-1" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-1">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;">Making green energy happen</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-generation&#x2f;">Electric power generation</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-transmission-storage&#x2f;">Electric power transmission & storage</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;energy-efficiency-technologies&#x2f;electric-power-consumption&#x2f;">Electric power consumption</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-3-2" class=" hidden clearfix">
+          <h2 class="sr-only ">Mobility</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-2" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-3-2">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;">Driving sustainable mobility</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;passenger-car&#x2f;">Passenger Car</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;micromobility&#x2f;">Micromobility</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;public-transport&#x2f;">Public Transport</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;freight-transport&#x2f;">Freight Transport</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;charging-infrastructure&#x2f;">Charging Infrastructure</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;mobility&#x2f;mobility-as-a-service&#x2f;">Mobility as a Service</a></li></ul>
+        </div>
+      </div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-support-7" class="hidden  content-support clearfix">
+      <h1 class="sr-only">Support</h1>
+      <svg id="pointer-support" class="svg-pointer"/>
+<ul class="nav-col second-level pointer-target" data-pointer="pointer-support">
+  <li class="support faq">
+      <span class="glyphicon glyphicon-support-faq"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;">Frequently asked Questions</a></li>
+  <li class="support forum">
+      <span class="glyphicon glyphicon-support-forum"></span>
+      <a href="https&#x3a;&#x2f;&#x2f;community.infineon.com&#x2f;" target="_blank">Community</a></li>
+  <li class="support chat">
+      <span class="glyphicon glyphicon-support-chat"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;support&#x2f;">Online Chat 24/7</a></li>
+  <li class="support phone">
+      <span class="glyphicon glyphicon-support-phone"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;service-center&#x2f;">Toll Free Call</a></li>
+  <li class="support email">
+      <span class="glyphicon glyphicon-support-email"></span>
+      <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;product-support-form&#x2f;">Product Support</a></li>
+  </ul></div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8" class="hidden clearfix">
+      <h1 class="sr-only">Technology</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8" class="svg-pointer"/>
+      <ul class="tabs-nav nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8">
+        <li><a class="tab active" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-0">.XT interconnection technology</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-1">MOTIX™</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-2">Wide Bandgap Semiconductors (SiC/GaN)</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-3">Dependability</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-4">Packages</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-5">Quality</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-6">Orderable Part Number Information</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-7">Product Material Declaration</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-8">Intuitive Sensing</a></li>
+        <li><a class="tab" href="#quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-9">China RoHS</a></li>
+        </ul>
+
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-0" class="clearfix">
+          <h2 class="sr-only ">.XT interconnection technology</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-0" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-0">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;.xt&#x2f;">.XT interconnection technology Overview</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-1" class=" hidden clearfix">
+          <h2 class="sr-only ">MOTIX™</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-1" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-1">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;motix&#x2f;">MOTIX™ Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;tools&#x2f;motix-software&#x2f;">MOTIX™ Software & Tools</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-2" class=" hidden clearfix">
+          <h2 class="sr-only ">Wide Bandgap Semiconductors (SiC/GaN)</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-2" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-2">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;wide-bandgap-semiconductors-sic-gan&#x2f;">Wide Bandgap Semiconductors (SiC/GaN) Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;silicon-carbide-sic&#x2f;">Silicon Carbide (SiC)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;gallium-nitride-gan&#x2f;">Gallium Nitride (GaN)</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-3" class=" hidden clearfix">
+          <h2 class="sr-only ">Dependability</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-3" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-3">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;">Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;functional-safety&#x20;">Functional safety</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;security">Security</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;promopages&#x2f;dependable-electronics&#x2f;&#x23;automotive-quality">Automotive Quality</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-4" class=" hidden clearfix">
+          <h2 class="sr-only ">Packages</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-4" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-4">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;">Packages Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;&#x23;smd">Surface Mounted Devices (SMD)</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;packages&#x2f;&#x23;thd">Through Hole Devices (THD)</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-5" class=" hidden clearfix">
+          <h2 class="sr-only ">Quality</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-5" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-5">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;quality&#x2f;">Quality Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;quality&#x2f;&#x23;certificates">IATF 16949 and ISO 9001 Certificates</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-6" class=" hidden clearfix">
+          <h2 class="sr-only ">Orderable Part Number Information</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-6" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-6">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;">Orderable Part Number Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;product-identifiers-at-infineon&#x2f;">Orderable Part Number Information</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;opn-structure&#x2f;">Structure</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;orderable-part-number-opn-translation-table&#x2f;">Translation table</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;opn&#x2f;opn-frequently-asked-questions&#x2f;">FAQs</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-7" class=" hidden clearfix">
+          <h2 class="sr-only ">Product Material Declaration</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-7" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-7">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;products-material-declaration&#x2f;">Products Material Declaration Overview</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-8" class=" hidden clearfix">
+          <h2 class="sr-only ">Intuitive Sensing</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-8" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-8">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;technology&#x2f;intuitive-sensing&#x2f;">Intuitive Sensing Overview</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;alarm-system&#x2f;">Alarm System</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;applications&#x2f;solutions&#x2f;sensor-solutions&#x2f;presence-detection&#x2f;">Radar Presence Detection</a></li></ul>
+        </div>
+      <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-apps-8-9" class=" hidden clearfix">
+          <h2 class="sr-only ">China RoHS</h2>
+          <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-9" class="svg-pointer"/>
+          <ul class="nav-col third-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-apps-8-9">
+            <li><a href="&#x2f;cms&#x2f;en&#x2f;product&#x2f;search&#x2f;material&#x2f;">China RoHS</a></li></ul>
+        </div>
+      </div>
+  <div id="quickaccess-98163ef2-2840-11e4-9059-556353e4878f-tools-9" class="hidden  content-tools clearfix">
+      <h1 class="sr-only">Partners</h1>
+
+      <svg id="pointer-98163ef2-2840-11e4-9059-556353e4878f-tools-9" class="svg-pointer"/>
+      <ul class="nav-col second-level pointer-target" data-pointer="pointer-98163ef2-2840-11e4-9059-556353e4878f-tools-9">
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;">Partner Ecosystem</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-finder&#x2f;">Partner Finder</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;infineon-security-partner-network&#x2f;">Security Partners</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;wireless-module-partners&#x2f;">Wireless Module Partners</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partners&#x2f;partner-ecosystems&#x2f;memory-chipset-partners&#x2f;">Memory Chipset Partners</a></li><li><a href="https&#x3a;&#x2f;&#x2f;ecosystem.infineon.cn&#x2f;index.html" target="_blank">Chinese Partners</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;startups&#x2f;">Startup Cooperation</a></li><li><a href="&#x2f;cms&#x2f;en&#x2f;partner-network&#x2f;silicon-valley-innovation-center&#x2f;">Silicon Valley Innovation Center</a></li></ul>
+        </div>
+  </div>
+        </nav>
+      </section>
+    </div></article>
+              </div>
+            </nav>
+          </article>
+
+        </main>
+
+        <div  id="newscontainer" ><div class="homenews-center">
+    <div class="centered">
+      <h2>News & Tweets</h2>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12 ">
+
+              <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;press&#x2f;press-releases&#x2f;" class="link news-link">News</a><div class="row">
+                <div class="col-sm-6 col-xs-12 news-wrapper">
+                      <div class="homenews-box">
+                        <a href="/cms/en/about-infineon/press/press-releases/2023/INFXX202302-056.html">
+                          <div class="homenews-box-content">
+                            <p class="meta">
+                              Feb 07, 2023 | <span class="category">Business & Financial Press</span></p>
+                            <p>Pan-European research initiative PowerizeD for intelligent power electronics launched – Infineon to coordinate 62 research partners</p>
+                          </div>
+                        </a>
+
+                        <svg class="homenews-svg" width="500" height="200"></svg>
+                        </div>
+                    </div>
+
+                  <div class="col-sm-6 col-xs-12 news-wrapper">
+                      <div class="homenews-box">
+                        <a href="/cms/en/about-infineon/press/press-releases/2023/INFXX202302-054.html">
+                          <div class="homenews-box-content">
+                            <p class="meta">
+                              Feb 02, 2023 | <span class="category">Quarterly Report</span></p>
+                            <p>Infineon concludes a very profitable first quarter and raises its outlook for the 2023 fiscal year slightly, adjusting for currency effects</p>
+                          </div>
+                        </a>
+
+                        <svg class="homenews-svg svg-left" height="200" width="30">
+                            <circle cx="30" cy="100" r="10" stroke="white" stroke-width="2" fill="white"/>
+                            <line x1="30" y1="100" x2="0" y2="100" style="stroke:white ;stroke-width:2"/>
+                          </svg>
+                          <svg class="homenews-svg-xs" height="20" width="700">
+                            <circle cx="350" cy="20" r="10" stroke="white" stroke-width="2" fill="white"/>
+                            <line x1="350" y1="0" x2="350" y2="20" style="stroke:white ;stroke-width:2"/>
+                          </svg>
+                        </div>
+                    </div>
+
+                  </div>
+            </div>
+          <div class="col-md-6 col-sm-12">
+          <div class="row">
+
+            <div class="col-sm-6 col-xs-12 marketnews-wrapper">
+                  <a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;press&#x2f;market-news&#x2f;" class="link news-link">Market News</a><div class="homenews-box">
+                        <a href="/cms/en/about-infineon/press/market-news/2023/INFPSS202302-055.html">
+                          <div class="homenews-box-content">
+                            <p class="meta">
+                              Feb 03, 2023 | <span class="category">Market News</span></p>
+
+                            <p>Infineon maintains leadership in the MEMS microphone market and launches new PDM microphone with low power consumption in a small package</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+              <div class="col-sm-6 col-xs-12 twitter-wrapper">
+              <a href="https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;Infineon" class="link news-link twitter-link" target="_blank">Visit Infineon on Twitter</a><div class="homenews-twitter-feed" data-count="1" data-service-url="/TwitterProxyServlet" data-username="Infineon">
+                <svg class="homenews-svg" height="200" width="30" ></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><div  id="bannerrowcontainer" ></div><div  id="teaserrowcontainer" ></div></div>
+      <footer class="footer" data-resources="[{paths: ['js/updateFooter.js'] }]" data-init="(function($elm) {})">
+  <div class="container-fluid">
+    <div class="row socialbar-footer">
+              <div class="centered">
+                <span class="followus">Follow us</span>
+                <a href="https&#x3a;&#x2f;&#x2f;www.facebook.com&#x2f;Infineon" data-track-name="socialMediaFollow" target="_blank" title="Infineon"><span class="glyphicon glyphicon-facebook2"></span></a><a href="https&#x3a;&#x2f;&#x2f;www.linkedin.com&#x2f;company&#x2f;infineon-technologies&#x2f;" data-track-name="socialMediaFollow" target="_blank" title="LinkedIn"><span class="glyphicon glyphicon-linkedin2"></span></a><a href="https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;Infineon" data-track-name="socialMediaFollow" target="_blank" title="Infineon"><span class="glyphicon glyphicon-twitter2"></span></a><a href="https&#x3a;&#x2f;&#x2f;www.youtube.com&#x2f;channel&#x2f;UCoTflChMPX0VBFXvXYmcu9w" data-track-name="socialMediaFollow" target="_blank" title="Infineon"><span class="glyphicon glyphicon-youtube1"></span></a><a href="https&#x3a;&#x2f;&#x2f;www.instagram.com&#x2f;infineoncareers" data-track-name="socialMediaFollow" target="_blank" title="Instagram"><span class="glyphicon glyphicon-instagram"></span></a></div>
+            </div>
+          <div class="row footer-copyright footer-copyright--center">
+  <div class="centered">
+    <div class="copyright">
+      <p>&copy; 1999 - 2023&nbsp;Infineon Technologies AG</p>
+      <ul class="vertical-list hidden-print">
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;usage-terms&#x2f;">Usage of this website is subject to our Usage Terms</a></li>
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;imprint&#x2f;">Imprint</a></li>
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;company&#x2f;contacts&#x2f;">Contact</a></li>
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;privacy-policy&#x2f;">Privacy Policy</a></li>
+        <li><a href="&#x2f;cms&#x2f;en&#x2f;about-infineon&#x2f;press&#x2f;general-information&#x2f;glossary&#x2f;">Glossary</a></li>
+        </ul>
+    </div>
+    <div class="copyright copyright--darkFont cn-links">
+      <p>
+        <a href="http&#x3a;&#x2f;&#x2f;www.beian.miit.gov.cn" class="extern" target="_blank">苏ICP备15016286号-1</a> | <a href="http&#x3a;&#x2f;&#x2f;www.beian.gov.cn&#x2f;portal&#x2f;registerSystemInfo&#x3f;recordcode&#x3d;32021402001016" class="iconlink iconlink--psb" target="_blank">苏公网安备 32021402001016号</a> | <a href="&#x2f;cms&#x2f;cn&#x2f;ifwu" class="extern">营业执照</a></p>
+    </div>
+  </div>
+</div>
+<div class="row hidden-print topBtn-overlay-padding">
+  <div class="centered">
+    <div class="switch">
+      <ul class="vertical-list">
+        <li><a href="#" class="hidden-xxs hidden-xs hidden-sm" id="switch-to-mobile">Switch to Mobile Version</a></li>
+        <li><a href="#" class="hidden-lg hidden-md" id="switch-to-desktop">Switch to Desktop Version</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+</div>
+    <script>
+  var navigationPageId = 'ad7131e4-be29-11e3-8b04-40f2e90e8d04';
+</script>
+
+<script src="/cms/en/services/js/configuration.js?cv=release_2023-01/dist/resources"></script>
+  <script>
+  
+  configuration.data.page.language = 'English';
+  
+  configuration.data.page.languages = [
+    
+    '简体中文', 
+    'Deutsch', 
+    '日本語'
+  ];
+  configuration.data.page.languagesHrefs = [
+    
+    '\x2Fcms\x2Fcn\x2F', 
+    '\x2Fcms\x2Fde\x2F', 
+    '\x2Fcms\x2Fjp\x2F'
+  ];
+
+  </script>
+
+<script src="/frontend/release_2023-01/dist/resources/js/combined.min.js"></script>
+  </div>
+</div>
+<script type="text/javascript">
+  function isUserLoggedIn_forStencilLoader() {
+      // _usersession cookie check
+      return !!(document.cookie.match('(^|;) ?_usersession=([^;]*)(;|$)'));
+  }
+
+  
+  if (document.querySelector('#registration-link') != null) {
+    document.querySelector('body').addEventListener('mouseover', function() {
+      if (!document.querySelector('myifx-registration') && !isUserLoggedIn_forStencilLoader()) {
+        document.body.insertAdjacentHTML('afterend', '<myifx-registration show-overlay-on-load="false"></myifx-registration>');
+      }
+    }, { once: true });
+  }
+</script>
+</body>
+</html>
