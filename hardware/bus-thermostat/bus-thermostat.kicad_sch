@@ -1042,7 +1042,7 @@
       (reference "C26") (unit 1) (value "10n") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/62581ea5-9a12-4fcd-898b-38ed9a6d9739"
-      (reference "C27") (unit 1) (value "10n") (footprint "")
+      (reference "C27") (unit 1) (value "100pF") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/995c305a-823d-443a-af21-e9fee94a6aaf"
       (reference "C28") (unit 1) (value "100nF") (footprint "")
@@ -1150,7 +1150,7 @@
       (reference "JP3") (unit 1) (value "Solder Jumper") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm")
     )
     (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/b9509bd5-25af-4378-b6b0-d098fb79c657"
-      (reference "L1") (unit 1) (value "100mH") (footprint "")
+      (reference "L1") (unit 1) (value "1.5mH 260mA") (footprint "Inductor_THT:L_Radial_D28.0mm_P29.20mm")
     )
     (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/5a50aa67-9aa3-47e9-b227-04d3054b363f"
       (reference "Q1") (unit 1) (value "2N7002") (footprint "Package_TO_SOT_SMD:SOT-23")
@@ -1213,7 +1213,7 @@
       (reference "R15") (unit 1) (value "TBD") (footprint "")
     )
     (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/d304deeb-2b32-4b27-b826-5741afaa4b42"
-      (reference "R16") (unit 1) (value "TBD") (footprint "")
+      (reference "R16") (unit 1) (value "9R1") (footprint "")
     )
     (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/7e4d14b9-ef9a-4b98-af8f-b239a9ae5175"
       (reference "R17") (unit 1) (value "10k") (footprint "")
@@ -1279,7 +1279,7 @@
       (reference "R37") (unit 1) (value "1k0") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/aad31e6c-b8ca-4ab4-a6e1-cf4aa60a608c"
-      (reference "R38") (unit 1) (value "20k") (footprint "")
+      (reference "R38") (unit 1) (value "143k 1%") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/90b2b237-c61d-40b5-9c18-26035190e357"
       (reference "R39") (unit 1) (value "100M") (footprint "")
@@ -1329,8 +1329,8 @@
     (path "/e9a8718b-cce8-4a1a-9229-65779783a760/3f4a7a97-9ba1-4938-971d-4d81c5a05073"
       (reference "SW1") (unit 1) (value "SW_Push") (footprint "")
     )
-    (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/6c920d2b-8d37-4232-8a28-28cf5394c5ee"
-      (reference "T1") (unit 1) (value "1:2") (footprint "Transformer_THT:Transformer_Toroid_Horizontal_D9.0mm_Amidon-T30")
+    (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/60f7157f-5de9-4748-84c0-9a4c81ec9eec"
+      (reference "T?") (unit 1) (value "PA2004NL") (footprint "Transformer_SMD:Pulse_PA2004NL")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/0297dd1b-db2b-42f3-aba6-42141f376658"
       (reference "TP1") (unit 1) (value "TestPoint") (footprint "Connector_Pin:Pin_D0.7mm_L6.5mm_W1.8mm_FlatFork")
