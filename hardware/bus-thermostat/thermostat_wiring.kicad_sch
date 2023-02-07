@@ -3104,7 +3104,7 @@
   (symbol (lib_id "Transformer:PA2004NL") (at 184.023 51.435 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 60f7157f-5de9-4748-84c0-9a4c81ec9eec)
-    (property "Reference" "T?" (id 0) (at 184.023 33.02 0))
+    (property "Reference" "T1" (id 0) (at 184.023 33.02 0))
     (property "Value" "PA2004NL" (id 1) (at 184.023 35.56 0))
     (property "Footprint" "Transformer_SMD:Pulse_PA2004NL" (id 2) (at 184.023 51.435 0)
       (effects (font (size 1.27 1.27)) hide)

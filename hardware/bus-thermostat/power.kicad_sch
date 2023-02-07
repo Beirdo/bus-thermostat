@@ -1438,12 +1438,12 @@
   )
 
   (text "Divide by 10.0/79.8 (approx 8)\nVref on ADC = 2.5V\n12V -> 1.504V\n19.95V -> 2.5V"
-    (at 245.11 89.916 0)
+    (at 245.11 89.916 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 552d82dd-f630-45cd-acfb-ae28beae696f)
   )
   (text "Reset when battery is below 9V\n(well, 9.0468V)\nor when 3.3V rail droops"
-    (at 57.023 136.271 0)
+    (at 57.023 136.271 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid f43e381c-852d-414f-9af2-085d4ed3637c)
   )

@@ -1048,7 +1048,7 @@
       (reference "C28") (unit 1) (value "100nF") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/5a5eeee4-adaa-4ef0-94c7-fa7bb9901ad1"
-      (reference "C29") (unit 1) (value "50pF") (footprint "")
+      (reference "C29") (unit 1) (value "10pF") (footprint "")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/dc861483-cd37-4ebe-ae42-14e5bd031a2d"
       (reference "C30") (unit 1) (value "100nF") (footprint "")
@@ -1330,7 +1330,7 @@
       (reference "SW1") (unit 1) (value "SW_Push") (footprint "")
     )
     (path "/5225554a-3241-4eb4-9fd0-3f5061d0114a/60f7157f-5de9-4748-84c0-9a4c81ec9eec"
-      (reference "T?") (unit 1) (value "PA2004NL") (footprint "Transformer_SMD:Pulse_PA2004NL")
+      (reference "T1") (unit 1) (value "PA2004NL") (footprint "Transformer_SMD:Pulse_PA2004NL")
     )
     (path "/b3446cb0-6e23-490d-8c96-4b8b72cbbdab/0297dd1b-db2b-42f3-aba6-42141f376658"
       (reference "TP1") (unit 1) (value "TestPoint") (footprint "Connector_Pin:Pin_D0.7mm_L6.5mm_W1.8mm_FlatFork")
