@@ -36,8 +36,8 @@ void setup() {
 
   pinMode(PIN_VBAT_DIV8, INPUT);
 
-  pinMode(PIN_OSC_PRIME, OUTPUT);
-  digitalWrite(PIN_OSC_PRIME, LOW);
+  pinMode(PIN_FAN_FAULT, INPUT);
+  attachInterrupt(digitalPinToInterrupt(PIN_FAN_FAULT), fan_fault_isr, FALLING);
 
   pinMode(PIN_RESET, INPUT);
   attachInterrupt(digitalPinToInterrupt(PIN_RESET), reset_isr, FALLING);
@@ -48,42 +48,24 @@ void setup() {
   io.pinMode(PIN_FAN_REQ, INPUT);
   io.pinMode(PIN_HEAT_REQ, INPUT);
   io.pinMode(PIN_COOL_REQ, INPUT);
+  io.pinMode(PIN_TEMP_OVER, INPUT);
   
   io.pinMode(PIN_EX_I2C_EN, OUTPUT);
   io.digitalWrite(PIN_EX_I2C_EN, external_i2c_enable);
 
   io.pinMode(PIN_EN_24VAC, OUTPUT);
   io.digitalWrite(PIN_EN_24VAC, LOW);
+  
+  io.pinMode(PIN_FAN_SHDN, OUTPUT);
+  io.digitalWrite(PIN_FAN_SHDN, HIGH);
   digitalWrite(PIN_I2C_LED, HIGH);
 
-  // Prime the oscillator by giving it 60Hz for 4 cycles
-  digitalWrite(PIN_OSC_PRIME, HIGH);
-  delayMicroseconds(8333);
-  digitalWrite(PIN_OSC_PRIME, LOW);
-  delayMicroseconds(8333);
-
-  digitalWrite(PIN_OSC_PRIME, HIGH);
-  delayMicroseconds(8333);
-  digitalWrite(PIN_OSC_PRIME, LOW);
-  delayMicroseconds(8333);
-
-  digitalWrite(PIN_OSC_PRIME, HIGH);
-  delayMicroseconds(8333);
-  digitalWrite(PIN_OSC_PRIME, LOW);
-  delayMicroseconds(8333);
-
-  digitalWrite(PIN_OSC_PRIME, HIGH);
-  delayMicroseconds(8333);
-  digitalWrite(PIN_OSC_PRIME, LOW);
-  delayMicroseconds(8333);
-
-  // give it a total 250ms to get the oscillator running
-  delay(184);
+  // give it a total of 100ms to get the oscillator stabilized
+  delay(100);
 
   digitalWrite(PIN_I2C_LED, LOW);
   io.digitalWrite(PIN_EN_24VAC, HIGH);
   digitalWrite(PIN_I2C_LED, HIGH);
-
 }
 
 void loop() {
@@ -92,11 +74,13 @@ void loop() {
   bool old_fan = fan_request;
   bool old_heat = heat_request;
   bool old_cool = cool_request;
+  bool temp_over;
 
   digitalWrite(PIN_I2C_LED, LOW);
   fan_request = io.digitalRead(PIN_FAN_REQ);
   heat_request = io.digitalRead(PIN_HEAT_REQ);
   cool_request = io.digitalRead(PIN_COOL_REQ);
+  temp_over = !io.digitalRead(PIN_TEMP_OVER);
   digitalWrite(PIN_I2C_LED, HIGH);
 
   int reading = analogRead(PIN_VBAT_DIV8);
