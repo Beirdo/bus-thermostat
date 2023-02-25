@@ -2007,8 +2007,8 @@
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/739ce458-cbf7-4287-8a10-b8dd4eb792fe"
       (reference "D9") (unit 1) (value "BAT42W-V") (footprint "Diode_SMD:D_SOD-123")
     )
-    (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/c8a83f67-0c41-41b9-80d9-a248ef390f73"
-      (reference "D10") (unit 1) (value "ACDBQC0130L-HF") (footprint "Diode_SMD:D_SOD-923")
+    (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/a2f0b907-a544-4587-95d5-1164b6128d2e"
+      (reference "D10") (unit 1) (value "BYS10-35") (footprint "Diode_SMD:D_SMA_Handsoldering")
     )
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/ee626141-6713-4c99-b44d-c72e122380b8"
       (reference "D11") (unit 1) (value "MMSZ5260C-E3-08") (footprint "Diode_SMD:D_SOD-123")
@@ -2026,7 +2026,7 @@
       (reference "J2") (unit 1) (value "Screw_Terminal_01x02") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
     )
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/a2df3ced-60b8-483f-8e3e-1a61781c0760"
-      (reference "J3") (unit 1) (value "FTDI Serial") (footprint "FTDI_BASIC")
+      (reference "J3") (unit 1) (value "FTDI Serial") (footprint "Beirdo:FTDI_BASIC")
     )
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/fedf54aa-e23c-4192-8197-589a4b54af2f"
       (reference "J4") (unit 1) (value "RJ45_Shielded") (footprint "SparkFun-Connectors:RJ45-8")
