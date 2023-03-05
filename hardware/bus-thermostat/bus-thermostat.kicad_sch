@@ -2026,7 +2026,7 @@
       (reference "J2") (unit 1) (value "Screw_Terminal_01x02") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
     )
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/a2df3ced-60b8-483f-8e3e-1a61781c0760"
-      (reference "J3") (unit 1) (value "FTDI Serial") (footprint "Beirdo:FTDI_BASIC")
+      (reference "J3") (unit 1) (value "FTDI Serial") (footprint "Beirdo:FTDI-TARGET")
     )
     (path "/9a2fdddb-dad5-445e-a65c-2bfabfe3e5b9/fedf54aa-e23c-4192-8197-589a4b54af2f"
       (reference "J4") (unit 1) (value "RJ45_Shielded") (footprint "SparkFun-Connectors:RJ45-8")

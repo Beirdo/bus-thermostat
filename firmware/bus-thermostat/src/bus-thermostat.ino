@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <PCA9557.h>
+#include <Beirdo-Utilities.h>
 
 #include "project.h"
 #include "kline.h"
@@ -37,7 +38,7 @@ void setup() {
   pinMode(PIN_VBAT_DIV8, INPUT);
 
   pinMode(PIN_FAN_FAULT, INPUT);
-  attachInterrupt(digitalPinToInterrupt(PIN_FAN_FAULT), fan_fault_isr, FALLING);
+  // attachInterrupt(digitalPinToInterrupt(PIN_FAN_FAULT), fan_fault_isr, FALLING);
 
   pinMode(PIN_RESET, INPUT);
   attachInterrupt(digitalPinToInterrupt(PIN_RESET), reset_isr, FALLING);

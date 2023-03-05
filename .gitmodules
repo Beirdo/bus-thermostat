@@ -4,3 +4,12 @@
 [submodule "hardware/git-libraries/Beirdo-KiCad-Libraries"]
 	path = hardware/git-libraries/Beirdo-KiCad-Libraries
 	url = https://github.com/Beirdo/KiCad-Libraries.git
+[submodule "firmware/bus-thermostat/lib/Beirdo-Utilities"]
+	path = firmware/bus-thermostat/lib/Beirdo-Utilities
+	url = https://github.com/Beirdo/arduino-common-utils
+[submodule "firmware/bus-thermostat/lib/PCA9557-arduino"]
+	path = firmware/bus-thermostat/lib/PCA9557-arduino
+	url = https://github.com/maxpromer/PCA9557-arduino
+[submodule "firmware/bus-thermostat/lib/Queue"]
+	path = firmware/bus-thermostat/lib/Queue
+	url = https://github.com/SMFSW/Queue.git
